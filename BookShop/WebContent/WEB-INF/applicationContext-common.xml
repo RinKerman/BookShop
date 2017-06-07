@@ -14,7 +14,7 @@
 		<property name="url" value="jdbc:mysql://172.20.10.4:3306/bookshop">
 		</property>
 		<property name="username" value="root"></property>
-		<property name="password" value="misaka"></property>
+		<property name="password" value=""></property>
 	</bean> -->
 	
 		<!-- C3P0数据库连接池方式 -->
@@ -27,7 +27,7 @@
               value="jdbc:mysql://172.20.10.4:3306/bookshop?useUnicode=true&amp;characterEncoding=utf-8" >
         </property>
         <property name="user" value="root"></property>
-        <property name="password" value="misaka"></property>
+        <property name="password" value=""></property>
         <!-- 当连接池中的连接耗尽的时候，c3p0一次同时获取的连接数。Default: 1 -->
         <property name="acquireIncrement" value="1" >
         </property>
