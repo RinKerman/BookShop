@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           				http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">	
+	
+	<!--  <aop:aspectj-autoproxy /> --> <!-- 启用@AspectJ配置  -->
+	
+	<!-- 获取一个BookDao类的实例 -->
+	<bean id="bookDao" class="czj.ssh.dao.BookDao" scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 获取一个 ShoppingDao类的实例 -->
+	<bean id="shoppingCartDao" class="czj.ssh.dao.ShoppingCartDao" scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 获取一个OrderDao类的对象 -->
+	<bean id="orderDao" class="czj.ssh.dao.OrderDao" scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>		
+	
+	<!-- 获取一个OrderStateDao类的对象 -->
+	<bean id="orderStateDao" class="czj.ssh.dao.OrderStateDao" scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>		
+	
+	<!-- 获取一个UserDao类的对象 -->
+	<bean id="userDao" class="czj.ssh.dao.UserDao" scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+			
+	<!-- 获取一个PaymentDao类的对象 -->
+	<bean id="paymentDao" class="czj.ssh.dao.PaymentDao" scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="userDao">
+			<ref bean="userDao"/>
+		</property>
+		<property name="orderDao">
+			<ref bean="orderDao"/>
+		</property>
+		<property name="orderStateDao">
+			<ref bean="orderStateDao"/>
+		</property>
+		<property name="bookDao">
+			<ref bean="bookDao"/>
+		</property>
+	</bean>
+	<!-- 获得bookdaod对象 -->
+	<bean id="bd" class="com.ssh.dao.BookDao">
+		<!-- 使用setter来注入sessionFactory属性 -->
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<!-- 得到UsersDao对象 -->
+	<bean id="ud" class="com.ssh.dao.Userdao">
+		<!-- 使用setter来注入sessionFactory属性 -->
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+		<bean id="bookAction" class="com.ssh.action.bookAction">
+		<property name="bookdao">
+			<ref bean="bd" />
+		</property>
+	</bean>
+	<!-- 获取一个User类的对象 -->
+	<bean id="user" class="czj.ssh.model.User" scope="prototype"/>
+</beans>

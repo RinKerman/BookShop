@@ -1,0 +1,146 @@
+.middle-person{
+    background-color: #F6F6F6;
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+    position:absolute;
+}
+
+.daohanlan{
+    margin-top: 5%;
+    margin-left: 20%;
+    float: left;
+}
+.person-date{
+    margin-top: 5%;
+    margin-left: 5%;
+    float: left;
+    background-color: #ffffff;
+    width: 50%;
+    height: 71%;
+}
+.persontitle{
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.persondetaileddate{
+    border: 1px solid #ededed;
+    margin-left: 2%;
+    width: 80%;
+    overflow: auto;
+}
+.name{
+    margin-left: 15%;
+    margin-top:5%;
+}
+.name span{
+    font-size: larger;
+}
+.email{
+    margin-left: 15%;
+    margin-top:5%;
+}
+.email span{
+    font-size:larger;
+}
+.sex{
+     margin-left: 15%;
+     margin-top:5%;
+ }
+.data{
+      margin-left: 15%;
+      margin-top:5%;
+  }
+.zhenname{
+       margin-left: 15%;
+       margin-top:5%;
+}
+.newsex{
+    margin-top: 5%;
+    margin-left: 12%;
+}
+.datasubmit{
+    margin-left: 22%;
+    margin-top: 5%;
+}
+.datasubmit input{
+    width: 30%;
+    height: 40px;
+    background-color: #fb5e33;
+}
+
+.address{
+    border: 1px solid #ededed;
+    margin-left: 2%;
+    width: 90%;
+    overflow: auto;
+}
+.addressadiv{
+    width:30%;
+    border:1px solid #ededed;
+    font-size: large;
+    float:left;
+    margin: 2%;
+    text-align:center
+}
+.divform{
+	display:none;
+}
+.pwdrevise{
+    margin-top: 8%;
+    margin-left: 15%;
+    font-size: larger;
+}
+.oldpwd input{
+    margin-left: 10%;
+}
+.newpwd{
+    margin-top: 5%;
+}
+.newpwd input{
+    margin-left: 10%;
+}
+.newpwd1{
+    margin-top: 5%;
+}
+.submitpwd input{
+    margin-top: 5%;
+    margin-left: 27%;
+    margin-bottom: 5%;
+    width: 25%;
+    height: 10%;
+    background-color: #fb5e33;
+}
+.myorder{
+	overflow: auto;
+}
+.tu{
+    float: left;
+    width: 30%;
+}
+.bookd{
+	float:left;
+	width:25%;
+	text-align:center
+}
+.orders{
+	border: 1px solid black;
+    margin-top: 2%;
+    overflow: auto;
+    
+}
+.ordertotal{
+	margin-left:80%
+}
+.orderstate{
+	margin-left:3%;
+	margin-top : 5%;
+}
+.orderdata{
+    margin-top: 5%;
+    margin-left: 5%;
+    float: left;
+    background-color: #ffffff;
+    width: 50%;
+    height: 85%;
+}

@@ -1,0 +1,95 @@
+.middle{
+    overflow:auto;
+    position:relative;
+    margin:0 auto;
+    border:solid 2px #ccc;
+    width: 50%;
+    margin-top: 50px;
+}
+.regis{
+    margin-left: 5%;
+}
+.username{
+    margin-top: 5%;
+    margin-left: 20%;
+    border:solid 1px #ccc;
+    width: 40%;
+    height:40px;
+    background:url("../images/name.png") no-repeat 0 center;
+}
+.username input{
+    float:left;
+    border:none;
+    background:none;
+    height:40px;
+    line-height: 30px;
+    width:100%;
+    text-indent:32px;
+}
+.pwd{
+    margin-top: 3%;
+    margin-left: 20%;
+    border:solid 1px #ccc;
+    width: 40%;
+    height:40px;
+    background:url("../images/psd.png") no-repeat 0 center;
+}
+.pwd input{
+    float:left;
+    border:none;
+    background:none;
+    height:40px;
+    line-height: 30px;
+    width:100%;
+    text-indent:32px;
+}
+.confirmpwd{
+    margin-top: 3%;
+    margin-left: 20%;
+    border:solid 1px #ccc;
+    width: 40%;
+    height:40px;
+    background:url("../images/psd.png") no-repeat 0 center;
+}
+.confirmpwd input{
+    float:left;
+    border:none;
+    background:none;
+    height:40px;
+    line-height: 30px;
+    width:100%;
+    text-indent:32px;
+}
+
+#vcode{
+    border:solid 2px #ccc;
+    width: 21%;
+    height:40px;
+    margin-top:5%;
+    margin-left: 20%;
+    padding-left:8px;
+}
+#code{
+    margin-left: 10%;
+    color:#ffffff;/*字体颜色白色*/
+    background-color:#000000;
+    font-size:20pt;
+    font-family:"华康娃娃体W5";
+    padding:5px 35px 10px 35px;
+    margin-left:5%;
+    cursor:pointer;
+}
+
+.registerbutton{
+    margin-left: 20%;
+    background-color: #FC5628;
+    width: 40%;
+    height: 40px;
+}
+.validatecode{
+    margin-left: 20%;
+}
+
+
+
+

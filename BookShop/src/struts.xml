@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 指定 action 的配置转到 Spring 的配置文件 -->
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<package name="bookShop" extends="struts-default" namespace="/">
+				
+		<!-- 配置queryBookForIndex -->
+		<action name="queryBookForIndex" class="queryBookForIndexAction">
+			<result name="success">index.jsp</result>
+		</action>
+		
+		<!-- 配置 queryShoppingCart -->
+		<action name="queryShoppingCart" class="queryShoppingCartAction">
+			<result name="success">shoppingcart.jsp</result>
+		</action>
+		
+		<!-- 配置deleteShoppingCartItem -->
+		<action name="deleteShoppingCartItem" class="deleteShoppingCartItemAction">
+			<result name="success">temp.jsp</result>
+			<result name="input">temp.jsp</result>
+		</action>
+		
+		<!-- 配置createOrder -->
+		<action name="createOrder" class="createOrderAction">
+			<result name="success">temp.jsp</result>
+			<result name="input">temp.jsp</result>
+		</action>
+		<!-- 配置addAddress -->
+		<action name="addAddress" class="addAddressAction">
+			<result name="success">temp.jsp</result>
+		</action>
+		<!-- 配置 payment -->
+		<!-- <action name="payment" class="paymentAction">
+			<result name="success">"支付成功"</result>
+			<result name="input">exception.jsp</result>
+		</action> -->
+		<!-- 配置search -->
+		<action name="search" class="searchAction">
+			<result name="success">search.jsp</result>
+			<result name="input">temp.jsp</result>
+		</action>
+		<!-- 配置simulationLogin -->
+		<action name="simulationLogin" class="simulationLoginAction">
+			<result name="success">temp.jsp</result>
+			<result name="input">simulationLogin.jsp</result>
+		</action>
+		<!-- 配置addToShoppingCart -->
+		<action name="addToShoppingCart" class="addToShoppingCartAction">
+			<result name="success">temp.jsp</result>
+			<result name="input">simulationLogin.jsp</result>
+		</action>
+		<!-- 配置checkout -->
+		<action name="checkout" class="checkoutAction">
+			<result name="success">temp.jsp</result>
+			<result name="input">temp.jsp</result>
+		</action>
+		<!-- 配置图书分类 -->
+		<action name="bookclassify" class="bookclassifyAction">
+			<result name="success">
+				classify.jsp
+			</result>
+		</action>
+		<!-- 登录注册 -->
+		<action name="login" class="loginAction">
+			<result name="success">
+				temp.jsp
+			</result>
+			<result name="input">
+				login.jsp
+			</result>
+		</action>
+		<action name="register" class="registerAction"> <!-- loginAction到Spring配置文件中查找 -->
+			<result name="success">temp.jsp</result>
+			<result name="input">register.jsp</result>
+		</action>
+		<!-- 配置个人中心 -->
+		<action name="perfectdata" class="perfectdataAction">
+			<result name="success">
+				personcenter.jsp
+			</result>
+			<result name="input">
+				perfectdata.jsp
+			</result>
+		</action>
+		<action name="myaddress" class="myaddressAction" >
+			<result name="success">
+				success.jsp
+			</result>
+			<result name="input">
+				myaddress.jsp
+			</result>
+		</action>
+		<action name="revisepwd" class="revisepwdAction">
+			<result name="success">
+				success.jsp
+			</result>
+			<result name="input">
+				pwdrevise.jsp
+			</result>
+		</action>
+		<action name="myorder" class="myorderAction">
+			<result name="success">
+				myorder.jsp
+			</result>
+		</action>
+		
+		<action name="book" class="bookAction">
+			<result name="success">
+				book.jsp
+			</result>
+		</action>
+		
+		<!-- 配置payAgain， 通过个人中心对订单进行第二次支付 -->
+		<action name="payAgain" class="payAgainAction">
+			<result name="success">
+				pay.jsp
+			</result>
+		</action>
+		<!-- 配置receiveConfirm ，通过个人中心确认订单 -->
+		<action name="receiveConfirm" class="receiveConfirmAction">
+			<result name="success">
+				temp.jsp
+			</result>
+		</action>
+		
+		
+		<!-- edit by rin                                                                   -->
+		
+		<!-- 配置后台BookListAction -->
+		<action name="BookListAction" class="BookListAction">
+			<result name="success">all-book.jsp</result>
+		</action>
+		
+		<action name="DeleteBookAction" class="DeleteBookAction">
+			<result name ="success" type="redirectAction">BookListAction</result>
+		</action>
+		
+		<action name="EditBookAction" class="EditBookAction">
+			<result name="success">edit-book.jsp</result>
+		</action>
+		
+		<action name="UpdateBookAction" class="UpdateBookAction">
+			<result name ="success" type="redirectAction">BookListAction</result>
+		</action>
+		
+	</package>
+	<package name="BookShop_ajax" extends="json-default" namespace="/">
+		<action name="payment" class="paymentAction">
+			 <result name="success" type="json">
+                <param name="root">returndata</param>
+            </result>
+		</action>
+	</package>
+</struts>

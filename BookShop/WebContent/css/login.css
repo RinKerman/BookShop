@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+}
+.headera{
+    overflow:auto;
+}
+.body1{
+    /*高度自适应*/
+    overflow:auto;
+    margin:0 auto;
+    width: 60%;
+    border: 0px solid black;
+}
+.header-logo{
+    float: left;
+    padding-left:20px;
+    padding-top: 20px;
+}
+.header-right{
+    float: right;
+    padding-right:10%;
+    padding-top: 50px;
+}
+.logoImg{
+    width: 100px;
+    height: 100px;
+
+}
+.middle{
+    width: 80%;
+    height: 600px;
+    background:url("../images/back1.jpg") no-repeat 0 center;
+    border: 1px solid black;
+}
+.logining{
+    margin-left: 50%;
+    margin-top: 10%;
+    border: 2px solid #EEF2F4;
+    width: 360px;
+    overflow:auto;
+    position: relative;
+}
+.text{
+    margin-left: 30px;
+    border:solid 1px #ccc;
+    margin-top: 10%;
+    width: 80%;
+    height:40px;
+    background:url("../images/name.png") no-repeat 0 center;
+}
+.text input{
+    float:left;
+    border:none;
+    background:none;
+    height:40px;
+    line-height: 30px;
+    width:100%;
+    text-indent:32px;
+}
+.psd{
+    margin-left: 30px;
+    margin-top: 10%;
+    border:solid 1px #ccc;
+    width: 80%;
+    height:40px;
+    background:url("../images/psd.png") no-repeat 0 center;
+}
+.psd input{
+    float:left;
+    border:none;
+    background:none;
+    height:40px;
+    line-height: 30px;
+    width:100%;
+    text-indent:32px;
+}
+.loginbutton{
+    border:solid 1px #ccc;
+    font-size:14pt;
+    font-family:"微软雅黑";
+    background-color:#FC5628;
+    width: 80%;
+    height: 40px;
+    margin-left:30px;
+    margin-top:10%;
+
+}
+.register{
+    float: right;
+    margin-right: 10%;
+}
+#vcode{
+    border:solid 2px #ccc;
+    width: 40%;
+    height:40px;
+    margin-top:5%;
+    margin-left: 10%;
+    padding-left:8px;
+}
+#code{
+    margin-left: 10%;
+    color:#ffffff;/*字体颜色白色*/
+    background-color:#000000;
+    font-size:20pt;
+    font-family:"华康娃娃体W5";
+    padding:5px 35px 10px 35px;
+    margin-left:5%;
+    cursor:pointer;
+
+}
+
