@@ -48,6 +48,7 @@ public class BookListAction extends ActionSupport{
 	
 	public String execute(){
 		
+		
 		TotalPage = bookDao.getTotalPage(15);
 		bookList = bookDao.getBookByPage(pageNum,15);
 		return SUCCESS;

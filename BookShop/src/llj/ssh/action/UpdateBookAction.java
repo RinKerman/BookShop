@@ -11,7 +11,7 @@ public class UpdateBookAction extends ActionSupport {
 
 	private BookDao bookDao;
 	private Book book;
-	private Booktype booktypeNew;
+	private int newType;
 
 	public UpdateBookAction() {
 
@@ -30,14 +30,15 @@ public class UpdateBookAction extends ActionSupport {
 		this.bookDao = bookDao;
 	}	
 	
-	public Booktype getBooktypeNew() {
-		return booktypeNew;
+	
+	public int getNewType() {
+		return newType;
 	}
-	public void setBooktypeNew(Booktype booktypeNew) {
-		this.booktypeNew = booktypeNew;
+	public void setNewType(int newType) {
+		this.newType = newType;
 	}
 	public String execute() {
-		book.setBooktype(booktypeNew);
+		book.setBooktype(bookDao.getBookTypeById(newType));
 		System.out.println("Using UpdateBookAction");
 		if (bookDao.editBook(book))
 			return SUCCESS;

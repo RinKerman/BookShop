@@ -2,25 +2,20 @@ package llj.ssh.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import com.ssh.dao.BookDao;
+import com.ssh.dao.Userdao;
 
-public class DeleteBookAction extends ActionSupport{
-	private BookDao BookDao;
+public class DeleteUserAction extends ActionSupport{
+	private Userdao UserDao;
 	private int number;
 	
-	public DeleteBookAction(){
-		
+	public DeleteUserAction(){
 	}
-
-	public BookDao getBookDao() {
-		return BookDao;
+	public Userdao getUserDao() {
+		return UserDao;
 	}
-
-
-	public void setBookDao(BookDao bookDao) {
-		BookDao = bookDao;
+	public void setUserDao(Userdao userDao) {
+		UserDao = userDao;
 	}
-
 	public int getNumber() {
 		return number;
 	}
@@ -31,7 +26,7 @@ public class DeleteBookAction extends ActionSupport{
 
 	public String execute(){
 		System.out.println(number);
-		if(BookDao.delBook(number)){
+		if(UserDao.delUser(number)){
 		return SUCCESS;}
 		return INPUT;
 	}

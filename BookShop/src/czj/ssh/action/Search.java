@@ -18,12 +18,25 @@ public class Search extends ActionSupport{
 	private String minPrice;
 	private String maxPrice;
 	private BookDao bookDao;
+	private boolean stage=false;   //判断跳转
+	
+	
 	private Set<Book> searchResult = new HashSet<Book>();
+	
+	
 	
 	public Search() {
 		super();
 	}
+	
+	public boolean isStage() {
+		return stage;
+	}
 
+	public void setStage(boolean stage) {
+		this.stage = stage;
+	}
+	
 	public String getKeyword() {
 		return keyword;
 	}
@@ -87,11 +100,14 @@ public class Search extends ActionSupport{
 			}
 			if(min > max){
 				searchResult = null;
+				if(stage = false)																	//edited!
 				return SUCCESS;
+				return NONE;
 			}
 			//在数据库中进行查找
 			List<Book> r = bookDao.queryBookByPrice(min, max);
 			searchResult = new HashSet(r);
+			
 		}else{		
 		//将浏览器发送过来的中文数据进行转码
 		  byte[] source = null;
@@ -138,6 +154,9 @@ public class Search extends ActionSupport{
 //	       while(it.hasNext()){
 //	    	   System.out.println(it.next());
 //	       }
-		return SUCCESS;
+		if(stage = false)																	//edited!
+			return SUCCESS;
+			return NONE;
+		
 	}
 }

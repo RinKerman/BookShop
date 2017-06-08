@@ -67,7 +67,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<s:iterator id="book" value="bookList">
+					<s:iterator id="book" value="searchResult">
 
 						<tr>
 							<td><s:property value="#book.bid" /></td>
@@ -88,9 +88,6 @@
 								href="DeleteBookAction?number=<s:property value="#book.bid" />&actionType=info">删除</a></td>
 						</tr>
 					</s:iterator>
-					<tr>
-					<td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td><a href="EditBookAction?actionType=info">新增</a></td>
-					</tr>
 				</tbody>
 			</table>
 		</div>

@@ -12,6 +12,7 @@ public class EditBookAction extends ActionSupport{
 	private BookDao BookDao;
 	private int bookNumber;
 	private Book book;
+	private String actionType;
 	private List<Booktype> bookTypeList;
 	
 	public List<Booktype> getBookTypeList() {
@@ -51,16 +52,24 @@ public class EditBookAction extends ActionSupport{
 		BookDao = bookDao;
 	}
 
-	
+	public String getActionType() {
+		return actionType;
+	}
+
+	public void setActionType(String actionType) {
+		this.actionType = actionType;
+	}
 
 	public String execute(){
+		if(book == null)
 		System.out.println("Using EditBookAction");
-		ActionContext.getContext().getSession().put("number",bookNumber);
+		System.out.println(actionType);
 		bookTypeList = BookDao.getBookType();
 		book = BookDao.getbook(bookNumber);
-		
-		System.out.println("get book bid = "+bookNumber);
-		System.out.println("current book type = "+book.getBooktype());
-		return SUCCESS;
+		if(actionType.equals("info"))
+			return SUCCESS ;
+		return INPUT;
 	}
+
+	
 }

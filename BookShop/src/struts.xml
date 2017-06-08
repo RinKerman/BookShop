@@ -5,25 +5,25 @@
 <struts>
 	<!-- 指定 action 的配置转到 Spring 的配置文件 -->
 	<constant name="struts.objectFactory" value="spring" />
-	
+
 	<package name="bookShop" extends="struts-default" namespace="/">
-				
+
 		<!-- 配置queryBookForIndex -->
 		<action name="queryBookForIndex" class="queryBookForIndexAction">
 			<result name="success">index.jsp</result>
 		</action>
-		
+
 		<!-- 配置 queryShoppingCart -->
 		<action name="queryShoppingCart" class="queryShoppingCartAction">
 			<result name="success">shoppingcart.jsp</result>
 		</action>
-		
+
 		<!-- 配置deleteShoppingCartItem -->
 		<action name="deleteShoppingCartItem" class="deleteShoppingCartItemAction">
 			<result name="success">temp.jsp</result>
 			<result name="input">temp.jsp</result>
 		</action>
-		
+
 		<!-- 配置createOrder -->
 		<action name="createOrder" class="createOrderAction">
 			<result name="success">temp.jsp</result>
@@ -34,14 +34,13 @@
 			<result name="success">temp.jsp</result>
 		</action>
 		<!-- 配置 payment -->
-		<!-- <action name="payment" class="paymentAction">
-			<result name="success">"支付成功"</result>
-			<result name="input">exception.jsp</result>
-		</action> -->
+		<!-- <action name="payment" class="paymentAction"> <result name="success">"支付成功"</result> 
+			<result name="input">exception.jsp</result> </action> -->
 		<!-- 配置search -->
 		<action name="search" class="searchAction">
 			<result name="success">search.jsp</result>
 			<result name="input">temp.jsp</result>
+			<result name="none">all-book-search.jsp</result>
 		</action>
 		<!-- 配置simulationLogin -->
 		<action name="simulationLogin" class="simulationLoginAction">
@@ -86,7 +85,7 @@
 				perfectdata.jsp
 			</result>
 		</action>
-		<action name="myaddress" class="myaddressAction" >
+		<action name="myaddress" class="myaddressAction">
 			<result name="success">
 				success.jsp
 			</result>
@@ -107,13 +106,13 @@
 				myorder.jsp
 			</result>
 		</action>
-		
+
 		<action name="book" class="bookAction">
 			<result name="success">
 				book.jsp
 			</result>
 		</action>
-		
+
 		<!-- 配置payAgain， 通过个人中心对订单进行第二次支付 -->
 		<action name="payAgain" class="payAgainAction">
 			<result name="success">
@@ -126,33 +125,60 @@
 				temp.jsp
 			</result>
 		</action>
-		
-		
-		<!-- edit by rin                                                                   -->
-		
+
+
+		<!-- edit by rin oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+		<!-- edit by rin oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+		<!-- edit by rin oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
 		<!-- 配置后台BookListAction -->
 		<action name="BookListAction" class="BookListAction">
 			<result name="success">all-book.jsp</result>
 		</action>
 		
+		<action name="UserListAction" class="UserListAction">
+			<result name="success">all-user.jsp</result>
+		</action>
+
 		<action name="DeleteBookAction" class="DeleteBookAction">
-			<result name ="success" type="redirectAction">BookListAction</result>
+			<result name="success" type="redirectAction">BookListAction</result>
+		</action>
+		
+		<action name="DeleteUserAction" class="DeleteUserAction">
+			<result name="success" type="redirectAction">UserListAction</result>
 		</action>
 		
 		<action name="EditBookAction" class="EditBookAction">
 			<result name="success">edit-book.jsp</result>
+			<result name="input">edit-picture.jsp</result>
 		</action>
-		
+
 		<action name="UpdateBookAction" class="UpdateBookAction">
-			<result name ="success" type="redirectAction">BookListAction</result>
+			<result name="success" type="redirectAction">BookListAction</result>
 		</action>
 		
+	<!-- 上传图片action -->
+		<action name="UploadFileAction" class="UploadFileAction" method="upload">
+		    <param name="savePath">/pictures/</param>
+			<result name="success" type="redirectAction">BookListAction</result>
+			<result name="error">edit-book.jsp</result>
+		</action>
+		
+		<action name="AddManagerAction" class="AddManagerAction">
+			<result name="success" type="redirectAction">UserListAction</result>
+		</action>
+
+
+
+
+
+
+
 	</package>
 	<package name="BookShop_ajax" extends="json-default" namespace="/">
 		<action name="payment" class="paymentAction">
-			 <result name="success" type="json">
-                <param name="root">returndata</param>
-            </result>
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
 		</action>
 	</package>
 </struts>

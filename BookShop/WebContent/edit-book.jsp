@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
+<%@ page import="com.opensymphony.xwork2.util.ValueStack" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-
-
 </head>
 <body>
 	<center>
@@ -18,7 +16,8 @@
 				<tbody>
 					<tr>
 						<td>ID</td>
-						<td><input type="text" value="${book.bid}" name="book.bid" readonly></td>
+						<td><input type="text" value="${book.bid}" name="book.bid"
+							readonly></td>
 					</tr>
 					<tr>
 						<td>书名</td>
@@ -56,25 +55,23 @@
 							name="book.stockNumber"></td>
 					</tr>
 					<tr>
-						<td>分类</td>			
-	<!--					<td><select name="book.booktype.btype">
-									<s:iterator id="type" value="bookTypeList">
-									<option value="${type}"><s:property
+						<td>分类</td>
+						<td>当前:${book.booktype.btype}<select name="newType">
+								<s:iterator id="type" value="bookTypeList">
+									<option value="${type.tid}"><s:property
 											value="#type.btype" /></option>
 								</s:iterator>
-						</select></td> -->
-						<td><input type="text" value="1" name="book.tid" ></td>
-						
+						</select></td>
 					</tr>
 					<tr>
 						<td>备注</td>
-						<td><input type="text" value="${book.note}" name="book.note"></td>
+						<td><input type="text" value="${book.note}" name="book.note"/></td>
 					</tr>
 				</tbody>
 			</table>
-			<input type="submit" /> <input type="reset" />
+			<input type="hidden" value="${book.picture}" name="book.picture"/>
+			<input type="submit" /> <input type="button" value="返回" onclick="javascript:window.history.back(-1);">
 		</form>
-		<a>current type:${book.booktype} option type: ${type}</a>
 	</center>
-</body>
+	</body>
 </html>

@@ -142,6 +142,13 @@
 	
 	
 	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
 	
 	<!--分页获取所有图书 -->
 	<bean id="BookListAction" class="llj.ssh.action.BookListAction">
@@ -150,11 +157,25 @@
 		</property>
 		<property name="pageSize" value="19"/>
 	</bean>
+	<!--分页获取所有用户  -->
 	
+	<bean id="UserListAction" class="llj.ssh.action.UserListAction">
+		<property name="userDao">
+			<ref bean="ud" />
+		</property>
+	</bean>
+		
 	<!-- 删除图书 -->
 	<bean id="DeleteBookAction" class="llj.ssh.action.DeleteBookAction">
 		<property name="bookDao">
 			<ref bean="bd"/>
+		</property>
+	</bean>
+	
+	<!-- 删除用户 -->
+	<bean id="DeleteUserAction" class="llj.ssh.action.DeleteUserAction">
+		<property name="UserDao">
+			<ref bean="ud"/>
 		</property>
 	</bean>
 	
@@ -170,6 +191,19 @@
 	<bean id="UpdateBookAction" class="llj.ssh.action.UpdateBookAction">
 		<property name="bookDao">
 			<ref bean="bd"/>
+		</property>
+	</bean>
+	
+	<!-- 上传图片 -->
+	<bean id="UploadFileAction" class="llj.ssh.action.UploadFileAction">
+		<property name="dao">
+			<ref bean="bd"/>
+		</property>
+	</bean>
+	
+	<bean id="AddManagerAction" class="llj.ssh.action.AddManagerAction">
+		<property name="UserDao">
+			<ref bean="ud"/>
 		</property>
 	</bean>
 	
