@@ -6,14 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Myorder implements java.io.Serializable{
-	private int orderId;
+	private int orderId;//订单id
+//	订单地址
+	private String oaddress;
+	
+	public String getOaddress() {
+		return oaddress;
+	}
+	public void setOaddress(String oaddress) {
+		this.oaddress = oaddress;
+	}
+//	图书idlist，名字list，数量list，价格list
 	private List bookpicture=new ArrayList<>();
 	private List bookname=new ArrayList<>();
 	private List booknum=new ArrayList<>();
 	private List bookprice=new ArrayList<>();
+	public List getOrderdetailid() {
+		return orderdetailid;
+	}
+	public void setOrderdetailid(List orderdetailid) {
+		this.orderdetailid = orderdetailid;
+	}
+//	订单详情表idlist
+	private List orderdetailid=new ArrayList<>();
+//	订单状态
 	private String orderstate;
+//	下单时间
 	private Date time;
-	
+//	订单总价格
 	private float Totalprice;
 	public int getOrderId() {
 		return orderId;

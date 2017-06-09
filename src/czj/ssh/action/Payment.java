@@ -68,9 +68,10 @@ public class Payment extends ActionSupport{
 				System.out.println("成功");
 				map.put("result", "支付成功");
 			}
-		} catch (Exception e) {
+		} catch (Exception e) {	//支付失败或抛出错误信息
 			e.printStackTrace();
 			System.out.println("失败");
+			//保存支付失败的信息
 			map.put("result", e.getMessage());
 		}
 		 JSONObject json=JSONObject.fromObject(map);

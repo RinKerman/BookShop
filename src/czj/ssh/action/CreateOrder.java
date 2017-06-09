@@ -108,6 +108,7 @@ public class CreateOrder extends ActionSupport{
 			od.setOrder(o);
 			System.out.println("Õº È√˚≥∆:" + shoppingCarts.get(index[i]).getBook().getTitle());
 			od.setBook(shoppingCarts.get(index[i]).getBook());
+			od.setBookPrice(shoppingCarts.get(index[i]).getBook().getPrice());
 			od.setQuantity(amount[i]);
 			//System.out.println(od.getBook().getTitle());
 			o.getOrderdetails().add(od);

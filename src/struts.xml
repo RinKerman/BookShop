@@ -5,25 +5,25 @@
 <struts>
 	<!-- 指定 action 的配置转到 Spring 的配置文件 -->
 	<constant name="struts.objectFactory" value="spring" />
-
+	
 	<package name="bookShop" extends="struts-default" namespace="/">
-
+				
 		<!-- 配置queryBookForIndex -->
 		<action name="queryBookForIndex" class="queryBookForIndexAction">
 			<result name="success">index.jsp</result>
 		</action>
-
+		
 		<!-- 配置 queryShoppingCart -->
 		<action name="queryShoppingCart" class="queryShoppingCartAction">
 			<result name="success">shoppingcart.jsp</result>
 		</action>
-
+		
 		<!-- 配置deleteShoppingCartItem -->
 		<action name="deleteShoppingCartItem" class="deleteShoppingCartItemAction">
 			<result name="success">temp.jsp</result>
 			<result name="input">temp.jsp</result>
 		</action>
-
+		
 		<!-- 配置createOrder -->
 		<action name="createOrder" class="createOrderAction">
 			<result name="success">temp.jsp</result>
@@ -34,13 +34,15 @@
 			<result name="success">temp.jsp</result>
 		</action>
 		<!-- 配置 payment -->
-		<!-- <action name="payment" class="paymentAction"> <result name="success">"支付成功"</result> 
-			<result name="input">exception.jsp</result> </action> -->
+		<!-- <action name="payment" class="paymentAction">
+			<result name="success">"支付成功"</result>
+			<result name="input">exception.jsp</result>
+		</action> -->
 		<!-- 配置search -->
 		<action name="search" class="searchAction">
 			<result name="success">search.jsp</result>
-			<result name="input">temp.jsp</result>
 			<result name="none">all-book-search.jsp</result>
+			<result name="input">temp.jsp</result>
 		</action>
 		<!-- 配置simulationLogin -->
 		<action name="simulationLogin" class="simulationLoginAction">
@@ -85,7 +87,7 @@
 				perfectdata.jsp
 			</result>
 		</action>
-		<action name="myaddress" class="myaddressAction">
+		<action name="myaddress" class="myaddressAction" >
 			<result name="success">
 				success.jsp
 			</result>
@@ -95,7 +97,7 @@
 		</action>
 		<action name="revisepwd" class="revisepwdAction">
 			<result name="success">
-				success.jsp
+				personcenter.jsp
 			</result>
 			<result name="input">
 				pwdrevise.jsp
@@ -106,13 +108,12 @@
 				myorder.jsp
 			</result>
 		</action>
-
 		<action name="book" class="bookAction">
 			<result name="success">
 				book.jsp
 			</result>
 		</action>
-
+		
 		<!-- 配置payAgain， 通过个人中心对订单进行第二次支付 -->
 		<action name="payAgain" class="payAgainAction">
 			<result name="success">
@@ -125,8 +126,47 @@
 				temp.jsp
 			</result>
 		</action>
-
-
+		<!-- 6.10 -->
+		<action name="adminorder" class="adminorderAction">
+			<result name="success">
+				adminorder.jsp
+			</result>
+		</action> 
+		<!-- 管理员删除订单操作 -->
+		<action name="removeorder" class="removeorderAction">
+			<result name="success" type="redirect">
+				/adminorder.action?pageNo=1
+			</result>
+		</action> 
+		<!-- 修改订单价格操作 -->
+		<action name="reviceprice" class="revicepriceAction">
+			<result name="success" type="redirect">
+				/adminorder.action?pageNo=1
+			</result>
+		</action> 
+		<!-- 配置获取修改订单状态  -->
+		<action name="revicestate" class="RstateorderAction">
+			<result name="success" >
+				/Rstateorder.jsp
+			</result>
+		</action> 
+		<action name="rstate" class="rAction">
+			<result name="success" type="redirect">
+				/adminorder.action?pageNo=1
+			</result>
+		</action>
+		<!-- 配置搜索订单 -->
+		<action name="reachorder" class="reachorderAction">
+			<result name="success" >
+				/adminorder.jsp
+			</result>
+		</action>
+		<action name="removeaddress" class="removeaddress">
+			<result name="success">
+				myaddress.jsp
+			</result>
+		</action>
+		
 		<!-- edit by rin oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
 		<!-- edit by rin oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
 		<!-- edit by rin oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
@@ -166,19 +206,41 @@
 		<action name="AddManagerAction" class="AddManagerAction">
 			<result name="success" type="redirectAction">UserListAction</result>
 		</action>
-
-
-
-
-
-
-
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</package>
 	<package name="BookShop_ajax" extends="json-default" namespace="/">
 		<action name="payment" class="paymentAction">
-			<result name="success" type="json">
-				<param name="root">returndata</param>
-			</result>
+			 <result name="success" type="json">
+                <param name="root">returndata</param>
+            </result>
 		</action>
+	</package>
+	<package name="default" namespace="/" extends="json-default"><!--用ajax要此extends-->
+		<action name="userJSON_checkname" class="userJSON_checknameAction">
+			<result type="json">
+			<!-- root的值对应要返回的值的属性,这里的result值即是 对应action中的属性result,也即ajax中的返回值data --> 
+				<param name="root">checkresult</param> 
+			</result> 
+		</action>
+
 	</package>
 </struts>

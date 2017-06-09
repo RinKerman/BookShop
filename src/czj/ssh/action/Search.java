@@ -1,9 +1,8 @@
 package czj.ssh.action;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -19,24 +18,12 @@ public class Search extends ActionSupport{
 	private String maxPrice;
 	private BookDao bookDao;
 	private boolean stage=false;   //判断跳转
-	
-	
 	private Set<Book> searchResult = new HashSet<Book>();
-	
-	
 	
 	public Search() {
 		super();
 	}
-	
-	public boolean isStage() {
-		return stage;
-	}
 
-	public void setStage(boolean stage) {
-		this.stage = stage;
-	}
-	
 	public String getKeyword() {
 		return keyword;
 	}
@@ -44,6 +31,14 @@ public class Search extends ActionSupport{
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+	public boolean isStage() {
+		return stage;
+	}
+
+	public void setStage(boolean stage) {
+		this.stage = stage;
+	}
+
 	public BookDao getBookDao() {
 		return bookDao;
 	}
@@ -100,26 +95,20 @@ public class Search extends ActionSupport{
 			}
 			if(min > max){
 				searchResult = null;
-				if(stage = false)																	//edited!
+				
+				if(stage) return NONE;
 				return SUCCESS;
-				return NONE;
 			}
 			//在数据库中进行查找
 			List<Book> r = bookDao.queryBookByPrice(min, max);
-			searchResult = new HashSet(r);
-			
+			searchResult = new HashSet<>();
 		}else{		
 		//将浏览器发送过来的中文数据进行转码
 		  byte[] source = null;
 		  String newKeyword = null;
 		try {
 			source = keyword.getBytes("iso8859-1");
-			newKeyword = new String (source,"UTF-8");
-			/*min = minPrice.getBytes("iso8859-1");
-			newMin = new String(min,"UTF-8");
-			max = maxPrice.getBytes("iso8859-1");
-			newMax = new String(max,"UTF-8");*/
-			
+			newKeyword = new String (source,"UTF-8");			
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -131,19 +120,11 @@ public class Search extends ActionSupport{
 	       for(String str : query){
 	    	   System.out.println(str);
 	       }
-	     //在数据库中进行模糊查询	       
-//	       List<Book> result = bookDao.fuzzyLookup(newKeyword.trim().replace(' ', '%'));
-//	       for(Book b1: result){
-//	    	   //将查询结果添加到set中
-//	    	   searchResult.add(b1);
-//	       }
 	       //对拆分好的每个关键字进行搜索
 	       for (int i = 0; i < query.length; i++) {
 	    	   List<Book> r = bookDao.fuzzyLookup(query[i],type);
-//	    	   for(Book b2 : r){	//并集
-//	    		   searchResult.add(b2);	    		   
-//	    	   }
 	    	   if(i == 0){
+	    		   System.out.println("将第一个结果添加到集合");
 	    		   searchResult.addAll(r);	//第一个关键字的集合添加到结果集
 	    	   }else{
 	    		   searchResult.retainAll(r);	//与第一个关键字的集合求交集
@@ -154,9 +135,8 @@ public class Search extends ActionSupport{
 //	       while(it.hasNext()){
 //	    	   System.out.println(it.next());
 //	       }
-		if(stage = false)																	//edited!
-			return SUCCESS;
-			return NONE;
 		
+		if(stage) return NONE;
+		return SUCCESS;
 	}
 }

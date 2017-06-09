@@ -44,7 +44,9 @@ public class LoginAction extends ActionSupport{
 			}
 			session.put("address", addresslist);
 			return SUCCESS;
-		}else
+		}else{
+			session.put("errorlogin","密码或用户名错误");
 			return INPUT;
+		}
 	}
 }

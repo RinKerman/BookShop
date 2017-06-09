@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Insert title here</title>
+<title>三味书屋</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -105,7 +105,7 @@
 				<div class="slider">
 					<ul class="rslides" id="slider1">
 						<li>
-							<img src="images/banner.jpg" alt="">							
+							<a href="javascript:redirect(1,4)"><img src="images/banner.jpg" alt=""></a>						
 						</li>
 						<li>
 							<img src="images/banner1.jpg" alt="">							
@@ -114,7 +114,7 @@
 							<img src="images/banner2.jpg" alt="">							
 						</li>
 						<li>
-							<img src="images/banner3.jpg" alt="">
+							<a href="javascript:redirect(1,6)"><img src="images/banner3.jpg" alt=""></a>
 						</li>
 					</ul>
 				</div>

@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="css/layui.css"  media="all">
     <script src="layui.js" charset="utf-8"></script>
     <!-- header的css文件 -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
     <link href="css/personcenter.css" rel="stylesheet" type="text/css">
 
@@ -54,7 +54,7 @@
                 <a href="javascript:;">账号安全</a>
                 <dl class="layui-nav-child">
                     <dd><a href="pwdrevise.jsp">修改密码</a></dd>
-                    <dd><a href="">账户余额</a></dd>
+                    <!-- <dd><a href="">账户余额</a></dd> -->
                 </dl>
             </li>
         </ul>

@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/layui.css"  media="all">
     <script src="layui.js" charset="utf-8"></script>
     <!-- header的css文件 -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
     <link href="css/personcenter.css" rel="stylesheet" type="text/css">
 	
@@ -121,7 +121,7 @@
                 <a href="javascript:;">账号安全</a>
                 <dl class="layui-nav-child">
                     <dd><a href="pwdrevise.jsp">修改密码</a></dd>
-                    <dd><a href="">账户余额</a></dd>
+                    <!-- <dd><a href="">账户余额</a></dd> -->
                 </dl>
             </li>
         </ul>
@@ -132,12 +132,15 @@
                 <h4>会员中心|我的地址</h4>
             </div> 
             <s:iterator value="#session.address" status="statu" var="add">   
-			    <div style="width:100%;border:1px solid #ededed;font-size: large;margin-top:2%;text-align:center">
+			    <div style="width:50%;border:1px solid #ededed;font-size: large;margin-top:2%;text-align:center;float:left">
                 	<div>
                 		地址：<s:property value="#add.address"/>
                 	</div>
                 	<div>
                 		邮编：<s:property value="#add.zipCode"/>
+                	</div>
+                	<div>
+                		<a href="removeaddress?addressid=${add.aid}">删除</a>
                 	</div>
             	</div> 
 			</s:iterator> 
@@ -158,6 +161,7 @@
            		<div>
            			邮编:<input type="text" id="email">
            		</div>
+           		
            		<input type="button" value="添加" class="submitaddress">
            	</form>
             </div>

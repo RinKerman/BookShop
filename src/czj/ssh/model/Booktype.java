@@ -61,6 +61,8 @@ public class Booktype implements java.io.Serializable {
 
 	public void setBooks(Set books) {
 		this.books = books;
-	}	
+	}
+
+	
 	
 }

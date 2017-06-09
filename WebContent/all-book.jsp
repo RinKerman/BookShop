@@ -79,7 +79,7 @@
 							<td><s:property value="#book.salesAmount" /></td>
 							<td><s:property value="#book.stockNumber" /></td>
 							<td><a
-								href="EditBookAction?bookNumber=<s:property value="#book.bid" />&actionType=picture">修改</a></td>
+								href="EditBookAction?bookNumber=<s:property value="#book.bid" />&actionType=picture"><img src="${book.picture}" width="130px" height="150px"></a></td>
 							<td><s:property value="#book.booktype.btype" /></td>
 							<td><s:property value="#book.note" /></td>
 							<td><a

@@ -1,0 +1,34 @@
+.orderdata{
+    margin-left: 5%;
+    float: left;
+    background-color: #ffffff;
+    width: 90%;
+    height: 80%;
+    font-size: larger;
+}
+.persondetaileddate{
+    border: 1px solid #ededed;
+    margin-left: 2%;
+    width: 90%;
+    overflow: auto;
+}
+.bookd{
+    float:left;
+    width:25%;
+    text-align:center
+}
+.ordertotal{
+    margin-left:80%
+}
+.orderstate{
+    margin-left:3%;
+}
+.orders{
+    border: 1px solid black;
+    margin-top: 2%;
+    overflow: auto;
+}
+.orderaddress{
+	margin-left:3%;
+	float:left;
+}

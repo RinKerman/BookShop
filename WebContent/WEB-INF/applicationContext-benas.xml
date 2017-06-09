@@ -85,6 +85,13 @@
 			<ref bean="bd" />
 		</property>
 	</bean>
+	<!-- 管理员dao对象 -->
+	<bean id="ad" class="com.ssh.dao.AdminDao">
+		<!-- 使用setter来注入sessionFactory属性 -->
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
 	<!-- 获取一个User类的对象 -->
 	<bean id="user" class="czj.ssh.model.User" scope="prototype"/>
 </beans>

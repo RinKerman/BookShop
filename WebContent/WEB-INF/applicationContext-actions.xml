@@ -138,8 +138,60 @@
 			<ref bean="ud" />
 		</property>
 	</bean>
+<!-- 	6.10 -->
+	<!-- //管理员查询所有订单 -->
+	<bean id="adminorderAction" class="com.ssh.adminAction.adminorderAction">
+		<property name="adminDao">
+			<ref bean="ad" />
+		</property>
+	</bean> 
 	
-	
+	<bean id="removeorderAction" class="com.ssh.adminAction.removeorderAction">
+		<property name="adminDao">
+			<ref bean="ad" />
+		</property>
+	</bean>
+	<bean id="bookAction" class="com.ssh.action.bookAction">
+		<property name="bookdao">
+			<ref bean="bd" />
+		</property>
+	</bean>
+	<!-- //删除地址 -->
+	<bean id="removeaddress" class="com.ssh.action.removerAAction">
+		<property name="userdao">
+			<ref bean="ud" />
+		</property>
+	</bean>
+	<!-- 修改价格操作 -->
+	<bean id="revicepriceAction" class="com.ssh.adminAction.revicepriceAction">
+		<property name="adminDao">
+			<ref bean="ad" />
+		</property>
+	</bean> 
+	<!-- 修改订单状态RstateorderAction -->
+	<bean id="RstateorderAction" class="com.ssh.adminAction.RevicestateAction">
+		<property name="adminDao">
+			<ref bean="ad" />
+		</property>
+	</bean>
+	<!-- 修改订单状态操作  -->
+	<bean id="rAction" class="com.ssh.adminAction.rAction">
+		<property name="adminDao">
+			<ref bean="ad" />
+		</property>
+	</bean>
+	<!-- 搜索订单操作 -->
+	<bean id="reachorderAction" class="com.ssh.adminAction.reachorderAction">
+		<property name="adminDao">
+			<ref bean="ad" />
+		</property>
+	</bean>
+	<!-- 校验用户名是否重复的ajax提交 -->
+	<bean id="userJSON_checknameAction" class="com.ssh.action.checknameAction">
+		<property name="userdao">
+			<ref bean="ud" />
+		</property>
+	</bean>
 	
 	<!-- edit by rin 2017/6/6 -->
 	<!-- edit by rin 2017/6/6 -->
@@ -206,10 +258,4 @@
 			<ref bean="ud"/>
 		</property>
 	</bean>
-	
-	
-	
-	
-	
-	
 </beans>

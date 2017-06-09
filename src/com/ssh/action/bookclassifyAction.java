@@ -89,7 +89,6 @@ public class bookclassifyAction extends ActionSupport{
 	}
 	@Override
 	public String execute() throws Exception {
-		// TODO Auto-generated method stub
 //		当前页数
 		currentPage=pageNo;
 //		当前排序状态

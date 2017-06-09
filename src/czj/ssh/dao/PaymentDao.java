@@ -1,6 +1,5 @@
 package czj.ssh.dao;
 
-import java.util.List;
 import java.util.Set;
 
 import org.hibernate.SessionFactory;
@@ -68,6 +67,8 @@ public class PaymentDao {
 		float sum = 0;
 		for(Orderdetail o : od){
 			sum += o.getQuantity() * o.getBook().getPrice();
+			//修改订单详情表中的图书价格
+			o.setBookPrice(o.getBook().getPrice());
 		}
 		System.out.println("计算消费金额:" + sum);
 		User user = order.getUser();
@@ -83,6 +84,8 @@ public class PaymentDao {
 		order.setShipAddress(address);
 		order.setReceive(receive);
 		order.setOrderstate(orderStateDao.get(2));
+		//修改订单详情表中的价格
+		//Orderdetail orderdetail = (Orderdetail) order.getOrderdetails().iterator().next();
 		//修改图书库存、增加销量
 		for(Orderdetail o : od){
 			if(o.getBook().getStockNumber() < o.getQuantity()){

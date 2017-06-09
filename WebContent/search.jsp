@@ -25,6 +25,7 @@
 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 
 </script>
+
 <!--飞入购物车-->
 <script src="js/jquery.fly.min.js"></script>
 <s:if test="#session.user != null">

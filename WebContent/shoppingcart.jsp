@@ -10,8 +10,8 @@
 	media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/shoppingcart.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/jquery.1.4.2-min.js"></script>
 <script type="text/javascript" src="js/Calculation.js"></script>
 <script type="text/javascript">
@@ -67,16 +67,19 @@
 		var aa = 0;
 		$(".gwc_tb2 input[name=newslist]").each(function() {
 			if ($(this).attr("checked")) {
-				for (var i = 0; i < $(this).length; i++) {
 					conts += parseInt($(this).val());
 					aa += 1;
-				}
 			}
 		});
+		if(aa > 0){
+			$("#jz1").css("display", "none");
+			$("#jz2").css("display", "block");			
+		}else{
+			$("#jz2").css("display", "none");
+			$("#jz1").css("display", "block");	
+		}
 		$("#shuliang").text(aa);
 		$("#zong1").html((conts).toFixed(2));
-		$("#jz1").css("display", "none");
-		$("#jz2").css("display", "block");
 	}
 	
 	function createOrder(){
@@ -228,10 +231,10 @@
 									<input type="hidden" name="index" value="<s:property value='#st.index'/>">
 									</td>
 
-								<td class="tb2_td2"><a href="#"><img
+								<td class="tb2_td2"><a href="book?bookid=${shoppingCart.book.bid}"><img
 										src="<s:property value='#shoppingCart.book.picture'/>" /></a></td>
 
-								<td class="tb2_td3"><a href="#"><s:property
+								<td class="tb2_td3"><a href="book?bookid=${shoppingCart.book.bid}" style="text-decoration: none;"><s:property
 											value="#shoppingCart.book.title" /></a></td>
 
 								<td class="tb1_td4">

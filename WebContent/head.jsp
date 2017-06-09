@@ -80,7 +80,7 @@
 								<option value="press">出版社</option> 
 								<option value="price">价格</option> 
 							</select>     
-							<input type="text" name="keyword" class="keyword" value="搜索" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '搜索';}" >
+							<input type="text" name="keyword" class="keyword" value="搜索(用空格分隔关键字)" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '搜索(用空格分隔关键字)';}" >
 							<input type='text' name='minPrice' value='0' class='minPrice' style='display:none;left:95px;width:20%;border:1px solid gray;'>
 							<span class='mySpan' style='position:absolute;left:170px;display:none;'>——</span>
 							<input type='text' name='maxPrice' value='0' class='maxPrice' style='display:none;width:20%;left:205px;border:1px solid gray;'>

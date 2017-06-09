@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -9,9 +11,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-
-    <link href="css/register.css" rel="stylesheet" type="text/css"/>
-
+   
     <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(changeImg);
@@ -44,45 +44,94 @@
         function check(){
             //获取用户输入的验证码
             var input_code=$("#vcode").val();
-            //alert(input_code+"----"+code);
-            if(input_code.toLowerCase()==code.toLowerCase())
+            if(input_code.toLowerCase()!=code.toLowerCase())
             {
                 //验证码正确(表单提交)
-                return true;
+                $(".validatecode").text("请输入正确的验证码");
+                return false;
             }
-            alert("请输入正确的验证码!");
+            if(!validateU()){
+                return false;
+            }
             //验证码不正确,表单不允许提交
-            return false;
+            return true;
         }
+    function validateU() {
+        var tarp=0;
+        $(".validatenametext").text("");
+        $(".validatepasd").text("");
+        if($(".text input").val()==""){
+            $(".validatenametext").text("用户名不能为空");
+            tarp=1;
+        }else{
+        	if($(".text input").val().length < 4){
+        		$(".validatenametext").text("用户名长度不能小于4");
+                tarp=1;
+        	}
+        	if($(".text input").val().length > 12){
+        		$(".validatenametext").text("用户名长度不能大于12");
+                tarp=1;
+        	}
+        }
+        if($(".psd input").val()==""){
+            $(".validatepasd").text("密码不能为空");
+            tarp=1;
+        }else{
+        	if($(".psd input").val().length < 4){
+        		 $(".validatepasd").text("密码长度不能小于4");
+                tarp=1;
+        	}
+        	if($(".psd input").val().length > 12){
+        		 $(".validatepasd").text("密码长度不能大于12");
+                tarp=1;
+        	}
+        }
+        if(tarp==1)
+            return false;
+        else
+            return true;
+    }
     </script>
+
 </head>
 <body>
-
-<div class="middle">
+<div style="margin-left: 10%;
+    width: 80%;
+    height: 800px;
+    border: 1px solid white;
+    background:url(back1.jpg) no-repeat 0 center;
+    background-size:cover;
+    ">
     <div class="middle-right">
-        <div class="logining">
+        <div class="logining" onmouseout="validateU()">
             <div>
                 <h2>密码登录</h2>
             </div>
-            <form action="login" method="post">
-            <div class="text" >
-                <input type="text" placeholder="昵称/手机号码" name="user.userName"/>
-            </div>
+            <form action="login" method="post">	<!-- 校验验证码 onsubmit="return check()" -->
+            	<div style="margin-left:30px;color:red">
+            		<s:property value="#session.errorlogin" />
+            	</div>
+                <div class="text" >
+                    <input type="text" placeholder="昵称/手机号码" name="user.userName"/>
+                	<span class="validatenametext"></span>
+                </div>
 
-            <div class="psd" >
-                <input type="password" placeholder="密码" name="user.password"/>
-            </div>
-            <div>
-                <input type="text" id="vcode" placeholder="验证码" value="验证码" onfocus="this.value=''"
-                       onblur="if(this.value=='')this.value='验证码'" />
-                <span id="code" title="看不清，换一张" onclick="changeImg()"></span>
-            </div>
-            <div>
-                <input type="submit" class="loginbutton" value="登录" >
-            </div>
-			</form>
+                <div class="psd" >
+                    <input type="password" placeholder="密码" name="user.password"/>
+                    <span class="validatepasd"></span>
+                </div>
+                <div>
+                    <input type="text" id="vcode" placeholder="验证码" value="验证码" onfocus="this.value=''"
+                           onblur="if(this.value=='')this.value='验证码'" />
+                    <span id="code" title="看不清，换一张" onclick="changeImg()"></span>
+                    <span class="validatecode" style="margin-left: 30px;"></span>
+                </div>
+                <div>
+                    <input type="submit" class="loginbutton" value="登录" >
+                </div>
+            </form>
             <div class="register">
-               <a href="register.jsp">立即注册</a> 
+                <a href="register.jsp">立即注册</a>
             </div>
 
         </div>

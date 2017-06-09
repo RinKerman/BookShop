@@ -97,7 +97,7 @@ public class ShoppingCartDao {
 		Session session = null;
 		try {
 			session = sessionFactory.openSession();
-			String hql = "select new Shoppingcart(s.book, s.user, s.quantity)from Shoppingcart as s where s.user.id = ?";	// 
+			String hql = "select new Shoppingcart(s.book, s.user, s.quantity)from Shoppingcart as s where s.book.deleteFlag=0 and s.user.id = ?";	// 
 			Query query = session.createQuery(hql);
 			query.setInteger(0, userId);
 			shoppingCarts = query.list();

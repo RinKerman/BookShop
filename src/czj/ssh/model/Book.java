@@ -218,4 +218,30 @@ public class Book implements java.io.Serializable {
 		this.comments = comments;
 	}
 
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((bid == null) ? 0 : bid.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		if (bid == null) {
+			if (other.bid != null)
+				return false;
+		} else if (!bid.equals(other.bid))
+			return false;
+		return true;
+	}
+
 }

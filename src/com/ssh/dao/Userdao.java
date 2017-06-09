@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import czj.ssh.model.Address;
-import czj.ssh.model.Booktype;
 import czj.ssh.model.Myorder;
 import czj.ssh.model.User;
 import czj.ssh.model.Usertype;
@@ -229,7 +228,7 @@ public class Userdao {
 				String stats=(String)object[1];
 				myorder.setOrderstate(stats);
 				//订单id查找订单状态，图书id
-				String hqlbook="select a.book.title,a.book.picture,a.quantity,a.book.price from"
+				String hqlbook="select a.book.title,a.book.picture,a.quantity,a.bookPrice from"
 						+ " Orderdetail as a where a.order.oid=?";
 				Query querybook=session.createQuery(hqlbook);
 				querybook.setParameter(0, oid);
@@ -289,128 +288,131 @@ public class Userdao {
 			session.close();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*----------------------------------------edit by rin-------------------------------*/
-	//分页获取用户
-	public List getUserByPage(int pageNum, int pageSize) {
-		System.out.println("getUserByPage(int "+pageNum+", int "+pageSize);
-		Session session = null;
-		List<User> lists = null;
-		try {
-			session = sessionFactory.openSession();
-			String hql = "from User order by uid desc";
-			Query q = session.createQuery(hql);
-			q.setFirstResult((pageNum - 1) * pageSize);
-			q.setMaxResults(pageSize);
-			lists = q.list();
-			System.out.println("returning user list page :" + pageNum);
-			return lists;
-		} catch (Exception e) {
-			System.out.println("getUserByPage query fail");
-			return null;
-		} finally {
-			session.close();
-		}
-	}
-
-	// 查询用户表页数
-	public int getTotalPage(int pageSize) {
-		Session session = null;
-		try {
-			session = sessionFactory.openSession(); // 得到session对象
-			String hql = "from User order by uid desc";
-			Query query = session.createQuery(hql);
-			System.out.println(query.toString());
-			List<User> lists = query.list();
-			int num = lists.size();
-			System.out.println("TotalUserNum=" + num);
-			System.out.println("PageSize=" + pageSize);
-			num = (num / pageSize) + 1;
-			System.out.println("TotalPageNum=" + num);
-			return num;
-		} catch (Exception ex) {
-			System.out.println("TotalUserPageNum查询失败!");
-			ex.printStackTrace();
-			return 0;
-		} finally { // 关闭session
-			session.close();
-		}
-	}
-	
-	//通过ID删除用户
-	public boolean delUser(int id){
-		Session session =null;
-		try{
-			session = sessionFactory.openSession();
-			String hql= "delete from User u where u.uid = ?";
-			Query q = session.createQuery(hql);
-			q.setParameter(0, id);
-			q.executeUpdate();
-			System.out.println("删除成功!");
-			return true;
-		} catch (Exception ex) {
-			System.out.println("查询失败!");
-			ex.printStackTrace();
-			return false;
-		} finally { // 关闭session
-			session.close();
-		}
-	}
-	
-	public Usertype getUserTypeById(int id){
-		Session session = null;
-		try {
-			System.out.println("get user type by id");
-			session = sessionFactory.openSession();
-			String hql = "from Usertype where utId = ?";
-			Query query = session.createQuery(hql);
-			query.setParameter(0, id);
-			List<Usertype> lists = query.list();
-			for (Usertype usertype : lists) {
-				return usertype;
+	//删除地址
+		public void removeA(int id){
+			Session session=null;
+			try{
+				session=sessionFactory.openSession(); //得到session对象
+				String hql="Delete FROM Address Where aid=?";
+				Query query=session.createQuery(hql);
+				query.setParameter(0, id);
+				query.executeUpdate();  
+			}catch(Exception ex){
+				System.out.println("查询失败!");
+				ex.printStackTrace();
+			}finally{ //关闭session
+				session.close();
 			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			return null;
-		} finally {
-			session.close();
 		}
-		return null;
-	}
+
+		/*----------------------------------------edit by rin-------------------------------*/
+		//分页获取用户
+		public List getUserByPage(int pageNum, int pageSize) {
+			System.out.println("getUserByPage(int "+pageNum+", int "+pageSize);
+			Session session = null;
+			List<User> lists = null;
+			try {
+				session = sessionFactory.openSession();
+				String hql = "from User order by uid desc";
+				Query q = session.createQuery(hql);
+				q.setFirstResult((pageNum - 1) * pageSize);
+				q.setMaxResults(pageSize);
+				lists = q.list();
+				System.out.println("returning user list page :" + pageNum);
+				return lists;
+			} catch (Exception e) {
+				System.out.println("getUserByPage query fail");
+				return null;
+			} finally {
+				session.close();
+			}
+		}
+
+		// 查询用户表页数
+		public int getTotalPage(int pageSize) {
+			Session session = null;
+			try {
+				session = sessionFactory.openSession(); // 得到session对象
+				String hql = "from User order by uid desc";
+				Query query = session.createQuery(hql);
+				System.out.println(query.toString());
+				List<User> lists = query.list();
+				int num = lists.size();
+				System.out.println("TotalUserNum=" + num);
+				System.out.println("PageSize=" + pageSize);
+				num = (num / pageSize) + 1;
+				System.out.println("TotalPageNum=" + num);
+				return num;
+			} catch (Exception ex) {
+				System.out.println("TotalUserPageNum查询失败!");
+				ex.printStackTrace();
+				return 0;
+			} finally { // 关闭session
+				session.close();
+			}
+		}
 		
-	public boolean AddManager(User user){
-		Session session = null;
-		Transaction tran = null;
-		try {
-			session = sessionFactory.openSession();
-			System.out.println("adding manager ...");
-			tran = session.beginTransaction();
-			session.save(user);
-			tran.commit();
-			return true;
-		} catch (Exception ex) {
-			System.out.println("修改失败!");
-			ex.printStackTrace();
-			tran.rollback();
-			return false;
-		} finally { // 关闭session
-			session.close();
+		//通过ID删除用户
+		public boolean delUser(int id){
+			Session session =null;
+			try{
+				session = sessionFactory.openSession();
+				String hql= "delete from User u where u.uid = ?";
+				Query q = session.createQuery(hql);
+				q.setParameter(0, id);
+				q.executeUpdate();
+				System.out.println("删除成功!");
+				return true;
+			} catch (Exception ex) {
+				System.out.println("查询失败!");
+				ex.printStackTrace();
+				return false;
+			} finally { // 关闭session
+				session.close();
+			}
 		}
-	}
-	
-	
+		
+		public Usertype getUserTypeById(int id){
+			Session session = null;
+			try {
+				System.out.println("get user type by id");
+				session = sessionFactory.openSession();
+				String hql = "from Usertype where utId = ?";
+				Query query = session.createQuery(hql);
+				query.setParameter(0, id);
+				List<Usertype> lists = query.list();
+				for (Usertype usertype : lists) {
+					return usertype;
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				return null;
+			} finally {
+				session.close();
+			}
+			return null;
+		}
+			
+		public boolean AddManager(User user){
+			Session session = null;
+			Transaction tran = null;
+			try {
+				session = sessionFactory.openSession();
+				System.out.println("adding manager ...");
+				tran = session.beginTransaction();
+				session.save(user);
+				tran.commit();
+				return true;
+			} catch (Exception ex) {
+				System.out.println("修改失败!");
+				ex.printStackTrace();
+				tran.rollback();
+				return false;
+			} finally { // 关闭session
+				session.close();
+			}
+		}
+		
+		
+		
 }

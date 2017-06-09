@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/layui.css"  media="all">
     <script src="layui.js" charset="utf-8"></script>
     <!-- header的css文件 -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
     <link href="css/personcenter.css" rel="stylesheet" type="text/css">
 
@@ -90,7 +90,7 @@
                 <a href="javascript:;">账号安全</a>
                 <dl class="layui-nav-child">
                     <dd><a href="pwdrevise.jsp">修改密码</a></dd>
-                    <dd><a href="">账户余额</a></dd>
+                    <!-- <dd><a href="">账户余额</a></dd> -->
                 </dl>
             </li>
         </ul>
@@ -101,32 +101,39 @@
                 <div class="date">
                     <h4>会员中心|信息完善</h4>
                 </div>
-                <div class="name">
-                    <span style="font-size: large">用户名:</span>
+                <div class="name" >
+                    <span style="font-size: 20px;font-weight:bold;">用户名:</span>
                     &nbsp;&nbsp;
 					<s:textfield name="user.userName" value="%{#session.user.userName}"/>
 				</div>
-                <div class="email">
-                    <span style="font-size: large">邮箱:</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="email" >
+                    <span style="font-size: 20px;font-weight:bold;">邮&nbsp;&nbsp;&nbsp;&nbsp;箱:</span>
+                    &nbsp;&nbsp;
 					<s:textfield name="user.email" value="%{#session.user.email}"/>                 
 				</div>
-                <div class="newsex">
+				<div class="layui-form-item" style="margin-left:15%;margin-top:5%;">
+				     <span style="font-size: 20px;font-weight:bold;">性&nbsp;&nbsp;&nbsp;&nbsp;别:</span>&nbsp;&nbsp;&nbsp;
+				      <input type="radio" name="user.sex" value="男">男&nbsp;&nbsp;&nbsp;&nbsp;
+				      <input type="radio" name="user.sex" value="女">女
+				    <!-- <div class="layui-input-block">
+				    </div> -->
+				</div>
+                <%-- <div class="newsex">
                     <div class="layui-form">
                         <div class="layui-form-item">
-                            <label class="layui-form-label">
-                                <span style="font-size: large">性别:</span>
+                            <label class="layui-form-label" >
+                               	 <span style="font-size: 20px;font-weight:bold;">性别:</span>
                             </label>
-                            <div class="layui-input-block">
-                                <input type="radio" name="user.sex" value="男" title="男">
-                                <input type="radio" name="user.sex" value="女" title="女">
+                             <div class="layui-input-block">
+                                <input type="radio" name="user.sex" value="男" />男
+                                <input type="radio" name="user.sex" value="女" />女
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --%>
                 <div class="data">
-                    <span style="font-size: large">生日:</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="font-size: 20px;font-weight:bold;">生&nbsp;&nbsp;&nbsp;&nbsp;日:</span>
+                    &nbsp;&nbsp;
 
                     <div class="layui-inline">
                         <input class="layui-input" placeholder="点击输入生日"
@@ -135,8 +142,8 @@
                     </div>
                 </div>
                 <div class="zhenname">
-                    <span style="font-size: large">真实姓名:</span>
-                    <s:textfield name="user.name" value="%{#session.user.name}"/>;
+                    <span style="font-size: 20px;font-weight:bold;">真实姓名:</span>
+                    <s:textfield name="user.name" value="%{#session.user.name}"/>
                 </div>
                 <div class="datasubmit">
                     <input type="submit" value="提交修改">

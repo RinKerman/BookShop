@@ -94,22 +94,7 @@
     </div>
     <div class="booklist">
     <s:iterator value="#session.booklist" var="bl">
-    <%-- <div class="bookclass">
-        <div class="bookimg">
-        	<a href="book?bookid=${bl.bid}"><img src=${bl.picture}></a>            
-        </div>
-        <div class="booktitle">
-            <a href="book?bookid=${bl.bid}" >
-            	<s:property value="#bl.title"/>
-            </a>
-        </div>
-        <div class="bookprice">
-          	  ￥:<s:property value="#bl.price"/>
-            &nbsp;&nbsp;
-
-           	已售:<s:property value="#bl.salesAmount"/>
-        </div>
-    </div> --%>
+    
     <div class="col-md-3 md-col" style="margin: 35px;">
 		<div class="col-md">
 			<a href="book?bookid=${bl.bid}"> <img
