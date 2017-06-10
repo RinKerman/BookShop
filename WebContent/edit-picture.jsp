@@ -33,7 +33,7 @@
 	<center>
 		<h2>上传图片文件</h2>
 		<hr>
-		<table>
+		<table class="layui-table">
 			<tr>
 				<td><img src="${book.picture}" ></td>
 				<td>

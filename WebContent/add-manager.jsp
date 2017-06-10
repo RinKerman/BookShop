@@ -9,12 +9,12 @@
 <body>
 	<fieldset class="layui-elem-field layui-field-title"
 		style="margin-top: 20px;">
-		<legend>默认表格</legend>
+		<legend>添加管理员</legend>
 	</fieldset>
 	<div class="layui-form">
 	<center>
 	<form action=AddManagerAction method="post">
-		<table class="layui-table">
+		<table border="1" width="70%" cellpadding="15" cellspacing="0" align="center" style="border-color:#e2e2e2;">
 			<tr>
 				<td>用户名</td>
 				<td><input type="text" name="user.userName" /></td>

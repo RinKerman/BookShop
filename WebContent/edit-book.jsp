@@ -12,7 +12,7 @@
 <body>
 	<center>
 		<form action=UpdateBookAction method="post">
-			<table style="border: solid">
+			<table border="1" width="70%" cellpadding="15" cellspacing="0" align="center" style="border-color:#e2e2e2;">
 
 				<tbody>
 					<tr>

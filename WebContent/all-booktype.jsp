@@ -46,9 +46,7 @@
 	})
 </script>
 </head>
-<s:if test="#session.user.usertype.utype != 2">
-<jsp:forward page="/login" />
-</s:if>
+
 <body>
 	<center><font color="gray"><h3>所有图书类型如下</h3></font></center>
 	<table  border="1" width="70%" cellpadding="15" cellspacing="0" align="center" style="border-color:#e2e2e2;">
