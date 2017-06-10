@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,16 +170,21 @@
             </div>
             </s:iterator>
         </div>
-        <div>
-		[<a href="myorder?pageNo=1 ">首页</a>]
-	<s:if test='%{currentPage>1}'>
-		[<a href="myorder?pageNo=${currentPage-1}">上一页</a>]
-	</s:if>
-	<s:if test="currentPage<totalPage">
-		[<a href="myorder?pageNo=${currentPage+1}">下一页</a>]
-	</s:if>
-	</div>
-    </div>
+        <div style="margin-left:40%">
+        	<ul class="pagination pagination-lg">
+        	<s:if test='%{currentPage>1}'>
+				<li><a href="myorder?pageNo=${currentPage-1}">&laquo;</a></li>
+			</s:if>
+			<s:if test='%{totalPage>0}'>
+			<c:forEach var="i" begin="1" end="${totalPage}">
+				<li><a href="myorder?pageNo=${i}">${i}</a><>
+			</c:forEach>
+			</s:if>
+			<s:if test="currentPage<totalPage">
+				<li><a href="myorder?pageNo=${currentPage+1}">&raquo;</a></li>>
+			</s:if>
+			</ul>
+        </div>
 </div>
 	<!-- 尾部 -->
 	<jsp:include page="foot.jsp"></jsp:include>

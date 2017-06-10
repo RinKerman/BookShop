@@ -124,14 +124,21 @@
     </s:iterator>
     </div>
     <div class="bookpaging">
-	[<a href="bookclassify?pageNo=1 & booktype=${booktype} & sortflag=${currentsort}">首页</a>]
-	<s:if test="currentPage>1">
-		[<a href="bookclassify?pageNo=${currentPage-1}&booktype=${booktype} & sortflag=${currentsort}">上一页</a>]
-	</s:if>
-	<s:if test="currentPage<totalPage">
-		[<a href="bookclassify?pageNo=${currentPage+1}&booktype=${booktype}& sortflag=${currentsort}">下一页</a>]
-	</s:if>
-	</div>
+        	<ul class="pagination pagination-lg">
+        	<s:if test='%{currentPage>1}'>
+				<li><a href="bookclassify?pageNo=${currentPage-1}&booktype=${booktype} & sortflag=${currentsort}">&laquo;</a></li>
+			</s:if>
+			<s:if test='%{totalPage>0}'>
+			<c:forEach var="i" begin="1" end="${totalPage}">
+			<li><a href="bookclassify?pageNo=${i}&booktype=${booktype} & sortflag=${currentsort}">${i}</a><>
+			</c:forEach>
+			</s:if>
+			<s:if test="currentPage<totalPage">
+				<li><a href="bookclassify?pageNo=${currentPage+1}&booktype=${booktype} & sortflag=${currentsort}">&raquo;</a></li>
+			</s:if>
+			</ul>
+     </div>
+
 	
 </div>
 <!--底部-->
