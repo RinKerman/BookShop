@@ -118,7 +118,7 @@ desired effect
 				</span> </a>
 				<ul class="treeview-menu">
 					<li><a href="BookListAction" target="mainContent">进入图书管理</a></li>
-					<li><a href="EditBookAction?actionType=info">新增图书</a></li>
+					<li><a href="EditBookAction?actionType=info" target="mainContent">新增图书</a></li>
 					
 				</ul></li>
 			<li class="treeview"><a href="#"><i class="fa fa-link"></i>
@@ -128,7 +128,6 @@ desired effect
 				<ul class="treeview-menu">
 					<li><a href="UserListAction" target="mainContent">人员管理</a></li>
 					<li><a href="add-manager.jsp" target="mainContent">添加管理员</a></li>
-					<li><a href="#">删除管理员</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"><i class="fa fa-link"></i>
 					<span>订单管理</span> <span class="pull-right-container"> <i
