@@ -28,6 +28,9 @@
 </script>
 
 </head>
+<s:if test="#session.user.usertype.utype != 2">
+<jsp:forward page="/login" />
+</s:if>
 <body>
 	<center>
 		<h2>上传图片文件</h2>

@@ -77,6 +77,12 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+<s:if test="#session.user.usertype.utype != 2">
+<jsp:forward page="/login" />
+</s:if>
+
+<s:if test="#session.user.usertype.utype == 2">
+
 <body class="hold-transition skin-blue slidebar-mini">
 	<div class="wrapper">
 
@@ -261,4 +267,5 @@ desired effect
      user experience. Slimscroll is required when using the
      fixed layout. -->
 </body>
+</s:if>
 </html>

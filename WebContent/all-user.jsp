@@ -20,6 +20,9 @@
 
 <link href="css/layui.css" rel="stylesheet" />
 </head>
+<s:if test="#session.user.usertype.utype != 2">
+<jsp:forward page="/login" />
+</s:if>
 <body>
 	<center>
 		<fieldset class="layui-elem-field layui-field-title"

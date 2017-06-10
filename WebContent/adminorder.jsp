@@ -57,6 +57,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </script>
 
 </head>
+<body>
+<s:if test="#session.user.usertype.utype != 2">
+<jsp:forward page="/login" />
+</s:if>
 		<!-- Main content -->
 			<section class="content">
 			<form action="reachorder" method="post" onsubmit="return check()">
