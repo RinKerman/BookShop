@@ -101,7 +101,7 @@ public class Search extends ActionSupport{
 			}
 			//在数据库中进行查找
 			List<Book> r = bookDao.queryBookByPrice(min, max);
-			searchResult = new HashSet<>();
+			searchResult = new HashSet<>(r);
 		}else{		
 		//将浏览器发送过来的中文数据进行转码
 		  byte[] source = null;
