@@ -192,16 +192,7 @@
 			<ref bean="ud" />
 		</property>
 	</bean>
-	
-	<!-- edit by rin 2017/6/6 -->
-	<!-- edit by rin 2017/6/6 -->
-	<!-- edit by rin 2017/6/6 -->
-	<!-- edit by rin 2017/6/6 -->
-	<!-- edit by rin 2017/6/6 -->
-	<!-- edit by rin 2017/6/6 -->
-	<!-- edit by rin 2017/6/6 -->
-	<!-- edit by rin 2017/6/6 -->
-	
+		
 	<!--分页获取所有图书 -->
 	<bean id="BookListAction" class="llj.ssh.action.BookListAction">
 		<property name="bookDao">
@@ -258,4 +249,10 @@
 			<ref bean="ud"/>
 		</property>
 	</bean>
+	
+	
+	
+	
+	
+	
 </beans>

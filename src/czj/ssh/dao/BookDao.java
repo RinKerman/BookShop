@@ -29,7 +29,7 @@ public class BookDao {
 		try {
 			list = new ArrayList();
 			session = sessionFactory.openSession();
-			String sql = "select * from book where deleteFlag=0 order by addDate desc limit 8";
+			String sql = "select * from book order by addDate desc limit 8";
 			SQLQuery sqlQuery = session.createSQLQuery(sql);
 			list = sqlQuery.addEntity(Book.class).list();
 			if(list.size() == 0){
@@ -51,7 +51,7 @@ public class BookDao {
 		Session session = null;
 		try {
 			session = sessionFactory.openSession();
-			String sql = "select * from book where deleteFlag=0 order by SalesAmount desc limit 8";
+			String sql = "select * from book order by SalesAmount desc limit 8";
 			SQLQuery sqlQuery = session.createSQLQuery(sql);
 			list = sqlQuery.addEntity(Book.class).list();
 			if(list.size() == 0){
@@ -76,7 +76,7 @@ public class BookDao {
 //			String sql = "select * from book order by rand() desc limit 5";
 //			SQLQuery sqlQuery = session.createSQLQuery(sql);
 //			list = sqlQuery.addEntity(Book.class).list();
-			String hql = "select book from Recommend where deleteFlag=0";
+			String hql = "select book from Recommend";
 			Query query = session.createQuery(hql);
 			list = query.list();
 			if(list.size() == 0){
@@ -117,7 +117,7 @@ public class BookDao {
 		Session session = null;
 		try {
 			session = sessionFactory.openSession();
-			String hql = "from Book b where b.deleteFlag=0 and b." + type + " like '%" + keyword + "%'";
+			String hql = "from Book b where b." + type + " like '%" + keyword + "%'";
 			System.out.println(hql);
 			Query query = session.createQuery(hql);
 			result = query.list();
@@ -136,7 +136,7 @@ public class BookDao {
 		Session session = null;
 		try {
 			session = sessionFactory.openSession();
-			String hql = "from Book b where deleteFlag=0 and b.price between ? and ?";
+			String hql = "from Book b where b.price between ? and ?";
 			Query query = session.createQuery(hql);
 			query.setInteger(0, min);
 			query.setInteger(1, max);
@@ -151,4 +151,26 @@ public class BookDao {
 		}
 		return result;
 	}
+	
+	//根据图书类型查找图书
+	public List<Book> queryBookByType(int tid){
+		List<Book> list = new ArrayList();
+		Session session = null;
+		try {
+			session = sessionFactory.openSession();
+			String hql = "from Book as b where b.booktype.tid = ?";
+			Query query = session.createQuery(hql);
+			query.setInteger(0, tid);
+			list = query.list();
+		} catch (Exception e) {
+			list = null;
+			e.printStackTrace();
+		} finally{
+			if(session != null){
+				session.close();
+			}
+		}		
+		return list;
+	}
+	
 }
