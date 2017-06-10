@@ -118,15 +118,16 @@ desired effect
 				</span> </a>
 				<ul class="treeview-menu">
 					<li><a href="BookListAction" target="mainContent">进入图书管理</a></li>
+					<li><a href="EditBookAction?actionType=info">新增图书</a></li>
+					
 				</ul></li>
 			<li class="treeview"><a href="#"><i class="fa fa-link"></i>
 					<span>人员管理</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span> </a>
 				<ul class="treeview-menu">
-					<li><a href="#">增加管理员</a></li>
-					<li><a href="#">修改管理员信息</a></li>
-					<li><a href="#">查询人员</a></li>
+					<li><a href="UserListAction" target="mainContent">人员管理</a></li>
+					<li><a href="add-manager.jsp" target="mainContent">添加管理员</a></li>
 					<li><a href="#">删除管理员</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"><i class="fa fa-link"></i>
@@ -134,17 +135,14 @@ desired effect
 						class="fa fa-angle-left pull-right"></i>
 				</span> </a>
 				<ul class="treeview-menu">
-					<li><a href="#">修改订单状态</a></li>
-					<li><a href="#">查询订单</a></li>
+					<li><a href="adminorder" target="mainContent">订单操作</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"><i class="fa fa-link"></i>
 					<span>图书分类管理</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span> </a>
 				<ul class="treeview-menu">
-					<li><a href="#">增加图书分类</a></li>
-					<li><a href="#">修改图书分类</a></li>
-					<li><a href="#">删除图书分类</a></li>
+					<li><a href="BookTypeListAction" target="mainContent">图书分类</a></li>
 				</ul></li>
 		</ul>
 		<!-- /.sidebar-menu --> </section> <!-- /.sidebar --> </aside>

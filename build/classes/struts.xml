@@ -207,6 +207,9 @@
 			<result name="success" type="redirectAction">UserListAction</result>
 		</action>
 		
+		<action name="BookTypeListAction" class="BookTypeListAction">
+			<result name="success" >all-booktype.jsp</result>
+		</action>
 		
 		
 		
