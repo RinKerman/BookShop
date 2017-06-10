@@ -63,12 +63,18 @@ public class EditBookAction extends ActionSupport{
 	public String execute(){
 		if(book == null)
 		System.out.println("Using EditBookAction");
+		System.out.println("-------bookNumber:" + bookNumber);
 		System.out.println(actionType);
 		bookTypeList = BookDao.getBookType();
-		book = BookDao.getbook(bookNumber);
+		if(bookNumber != 0){
+			book = BookDao.getbook(bookNumber);			
+		}else{
+			book = null;
+		}
 		if(actionType.equals("info"))
-			return SUCCESS ;
+			return SUCCESS;
 		return INPUT;
+
 	}
 
 	

@@ -70,6 +70,7 @@
 			<result name="success">
 				temp.jsp
 			</result>
+			<result name="none">backstage.jsp</result>
 			<result name="input">
 				login.jsp
 			</result>

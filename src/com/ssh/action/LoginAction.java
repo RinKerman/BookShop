@@ -43,7 +43,9 @@ public class LoginAction extends ActionSupport{
 				System.out.println(address.getAddress());
 			}
 			session.put("address", addresslist);
+			if(user1.getUsertype().getUtId()== 2)
 			return SUCCESS;
+			return NONE;
 		}else{
 			session.put("errorlogin","密码或用户名错误");
 			return INPUT;

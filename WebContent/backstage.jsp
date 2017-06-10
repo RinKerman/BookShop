@@ -118,7 +118,7 @@ desired effect
 				</span> </a>
 				<ul class="treeview-menu">
 					<li><a href="BookListAction" target="mainContent">进入图书管理</a></li>
-					<li><a href="EditBookAction?actionType=info" target="mainContent">新增图书</a></li>
+					<li><a href="EditBookAction?bookNumber=0&actionType=info" target="mainContent">新增图书</a></li>
 					
 				</ul></li>
 			<li class="treeview"><a href="#"><i class="fa fa-link"></i>
@@ -143,6 +143,7 @@ desired effect
 				<ul class="treeview-menu">
 					<li><a href="BookTypeListAction" target="mainContent">图书分类</a></li>
 				</ul></li>
+				<li><a href="/BookShop">前往前台</a></li>
 		</ul>
 		<!-- /.sidebar-menu --> </section> <!-- /.sidebar --> </aside>
 

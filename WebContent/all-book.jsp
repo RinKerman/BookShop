@@ -88,7 +88,7 @@
 						</tr>
 					</s:iterator>
 					<tr>
-					<td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td><a href="EditBookAction?actionType=info">新增</a></td>
+					<td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td><a href="EditBookAction?bookNumber=0&actionType=info">新增</a></td>
 					</tr>
 				</tbody>
 			</table>
