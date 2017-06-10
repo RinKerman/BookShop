@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,6 +67,19 @@
 				<td></td>
 				<td><a href="javascript:onclick_open();" class="add">增加</a></td>
 			</tr>
+			<tr>		<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnew -->
+				<td colspan="3">
+					[<a href="BookTypeListAction.action?currentPage=1">首页</a>]
+					<c:if test="${currentPage>1}">
+						[<a href="BookTypeListAction.action?currentPage=${currentPage-1}">上一页</a>]
+					</c:if>				
+					<c:if test="${currentPage<totalPage}">
+						[<a href="BookTypeListAction.action?currentPage=${currentPage+1}">下一页</a>]
+					</c:if>
+					[<a href="BookTypeListAction.action?currentPage=${totalPage}">尾页</a>]
+					第${currentPage}页/共${totalPage}页
+				</td>
+			</tr>	<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnew -->
 	</table>
 	<!--shade-->
 	<div class="shade" style="display: none"></div>

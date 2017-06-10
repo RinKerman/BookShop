@@ -39,7 +39,23 @@ public class BookTypeDao {
 			}
 		}
 		return result;
-	}
+	}	
+	//分页查询的方法		<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnew -->
+		public List<Booktype> queryByPage(int currentPage,int pageSize){
+			List<Booktype> orders = null;
+			try {
+				Session session = sessionFactory.openSession();
+				Query query = session.createQuery("from Booktype");
+				query.setFirstResult((currentPage - 1) * pageSize);
+				query.setMaxResults(pageSize);
+				orders = query.list();
+				session.close();
+			} catch (HibernateException e) {
+				e.printStackTrace();
+			}
+			return orders;		
+		}
+	
 	//根据id获取图书类型
 	public Booktype get(int id){
 		Booktype type = null;
@@ -104,5 +120,5 @@ public class BookTypeDao {
 			}
 		}
 		return flag;				
-	}
+	}	
 }
