@@ -20,9 +20,7 @@
 
 <link href="css/layui.css" rel="stylesheet" />
 </head>
-<s:if test="#session.user.usertype.utype != 2">
-<jsp:forward page="/login" />
-</s:if>
+
 <body>
 	<center>
 		<fieldset class="layui-elem-field layui-field-title"
@@ -65,6 +63,7 @@
 						<th>图片</th>
 						<th>分类</th>
 						<th>备注</th>
+						<th>推荐</th>
 						<th>编辑</th>
 						<th>删除</th>
 					</tr>
@@ -82,9 +81,20 @@
 							<td><s:property value="#book.salesAmount" /></td>
 							<td><s:property value="#book.stockNumber" /></td>
 							<td><a
-								href="EditBookAction?bookNumber=<s:property value="#book.bid" />&actionType=picture">修改</a></td>
+								href="EditBookAction?bookNumber=<s:property value="#book.bid" />&actionType=picture"><img
+									src="${book.picture}" width="130px" height="150px"></a></td>
 							<td><s:property value="#book.booktype.btype" /></td>
 							<td><s:property value="#book.note" /></td>
+							<td>
+								<s:if test="#book.recommendFlag == 1">
+									<a href="SwitchRecommendAction?number=<s:property value="#book.bid" />"> <button>取消推荐</button>
+									</a>
+								</s:if>
+								<s:if test="#book.recommendFlag != 1">
+									<a href="SwitchRecommendAction?number=<s:property value="#book.bid" />"><button>设为推荐</button>
+									</a>
+								</s:if>
+							</td>
 							<td><a
 								href="EditBookAction?bookNumber=<s:property value="#book.bid" />&actionType=info">修改</a></td>
 							<td><a
@@ -94,17 +104,7 @@
 				</tbody>
 			</table>
 		</div>
-		<s:if test="pageNum>1">
-			<a href="BookListAction?pageNum=${PageNum-1}">上一页</a>&nbsp;&nbsp;
-	</s:if>
-		<a>当前页:<s:property value="PageNum" />&nbsp;&nbsp;</a>
-		<a>总页数:<s:property value="TotalPage" />&nbsp;&nbsp; </a>
-		<s:if test="pageNum<TotalPage">
-		<a href="BookListAction?pageNum=${PageNum+1}">下一页</a>
-</s:if>
-			</p>跳转到<input id="number" type="text" /> <input type="button" value="跳转"
-			onclick="Jump()" />
-			
+					
 	</center>
 	<script type="text/javascript" src="js/jquerySession.js"></script>
 	<script type="text/javascript">

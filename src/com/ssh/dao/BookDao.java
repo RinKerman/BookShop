@@ -387,5 +387,46 @@ public class BookDao {
 				session.close();
 			}
 
-		}	
+		}
+		
+		public void switchRecommend(int bid,int flag){
+			System.out.println("switchRecommend("+bid+" "+flag);
+			Session session = null;
+			if(flag == 0){flag = 1;}
+			else{flag = 0;}
+			try {
+				session = sessionFactory.openSession();
+				String hql = "update Book b set b.recommendFlag=? where b.bid=? ";
+				Query query = session.createQuery(hql);
+				query.setParameter(0, flag);
+				query.setParameter(1, bid);
+				System.out.println("update Book b set b.recommendFlag = " + flag + " where b.bid = " + bid);
+				query.executeUpdate();
+			} catch (Exception ex) {
+				System.out.println("ÐÞ¸ÄÍÆ¼öÊ§°Ü!");
+				ex.printStackTrace();
+			} finally { // ¹Ø±Õsession
+				session.close();
+			}
+		}
+		
+		
+		public List getRecommend() {
+			Session session = null;
+			List<Book> lists = null;
+			try {
+				session = sessionFactory.openSession();
+				String hql = "from Book where recommendFlag=1 order by bid asc";
+				Query q = session.createQuery(hql);
+				lists = q.list();
+				return lists;
+			} catch (Exception e) {
+				System.out.println("query fail");
+				return null;
+			} finally {
+				session.close();
+			}
+		}
+		
+		
 }

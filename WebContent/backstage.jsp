@@ -77,11 +77,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<s:if test="#session.user.usertype.utype != 2">
-<jsp:forward page="/login" />
-</s:if>
 
-<s:if test="#session.user.usertype.utype == 2">
 
 <body class="hold-transition skin-blue slidebar-mini">
 	<div class="wrapper">
@@ -125,6 +121,7 @@ desired effect
 				<ul class="treeview-menu">
 					<li><a href="BookListAction" target="mainContent">进入图书管理</a></li>
 					<li><a href="EditBookAction?bookNumber=0&actionType=info" target="mainContent">新增图书</a></li>
+					<li><a href="AllRecommendAction" target="mainContent">图书推荐列表</a></li>
 					
 				</ul></li>
 			<li class="treeview"><a href="#"><i class="fa fa-link"></i>
@@ -267,5 +264,5 @@ desired effect
      user experience. Slimscroll is required when using the
      fixed layout. -->
 </body>
-</s:if>
+
 </html>

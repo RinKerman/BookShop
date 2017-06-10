@@ -176,6 +176,11 @@
 			<result name="success">all-book.jsp</result>
 		</action>
 		
+		<action name="AllRecommendAction" class="AllRecommendAction">
+			<result name="success">all-book.jsp</result>
+		</action>
+		
+		
 		<action name="UserListAction" class="UserListAction">
 			<result name="success">all-user.jsp</result>
 		</action>
@@ -212,6 +217,9 @@
 			<result name="success" >all-booktype.jsp</result>
 		</action>
 		
+		<action name="SwitchRecommendAction" class="SwitchRecommendAction">
+			<result name="success" type="redirectAction">BookListAction</result>
+		</action>
 		
 		
 		

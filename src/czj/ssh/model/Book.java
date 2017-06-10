@@ -24,12 +24,11 @@ public class Book implements java.io.Serializable {
 	private Integer salesAmount;
 	private Integer stockNumber;
 	private Integer deleteFlag;
+	private Integer recommendFlag;
 	private String note;
 	private Set recommends = new HashSet(0);
 	private Set orderdetails = new HashSet(0);
-	private Set orderdetails_1 = new HashSet(0);
 	private Set shoppingcarts = new HashSet(0);
-	private Set shoppingcarts_1 = new HashSet(0);
 	private Set comments = new HashSet(0);
 
 	// Constructors
@@ -42,8 +41,8 @@ public class Book implements java.io.Serializable {
 	public Book(Booktype booktype, String title, String author, String press,
 			String introduction, Date addDate, String picture, float price,
 			Integer salesAmount, Integer stockNumber, Integer deleteFlag,
-			String note, Set recommends, Set orderdetails, Set orderdetails_1,
-			Set shoppingcarts, Set shoppingcarts_1, Set comments) {
+			Integer recommendFlag, String note, Set recommends,
+			Set orderdetails, Set shoppingcarts, Set comments) {
 		this.booktype = booktype;
 		this.title = title;
 		this.author = author;
@@ -55,12 +54,11 @@ public class Book implements java.io.Serializable {
 		this.salesAmount = salesAmount;
 		this.stockNumber = stockNumber;
 		this.deleteFlag = deleteFlag;
+		this.recommendFlag = recommendFlag;
 		this.note = note;
 		this.recommends = recommends;
 		this.orderdetails = orderdetails;
-		this.orderdetails_1 = orderdetails_1;
 		this.shoppingcarts = shoppingcarts;
-		this.shoppingcarts_1 = shoppingcarts_1;
 		this.comments = comments;
 	}
 
@@ -162,6 +160,14 @@ public class Book implements java.io.Serializable {
 		this.deleteFlag = deleteFlag;
 	}
 
+	public Integer getRecommendFlag() {
+		return this.recommendFlag;
+	}
+
+	public void setRecommendFlag(Integer recommendFlag) {
+		this.recommendFlag = recommendFlag;
+	}
+
 	public String getNote() {
 		return this.note;
 	}
@@ -186,14 +192,6 @@ public class Book implements java.io.Serializable {
 		this.orderdetails = orderdetails;
 	}
 
-	public Set getOrderdetails_1() {
-		return this.orderdetails_1;
-	}
-
-	public void setOrderdetails_1(Set orderdetails_1) {
-		this.orderdetails_1 = orderdetails_1;
-	}
-
 	public Set getShoppingcarts() {
 		return this.shoppingcarts;
 	}
@@ -202,46 +200,12 @@ public class Book implements java.io.Serializable {
 		this.shoppingcarts = shoppingcarts;
 	}
 
-	public Set getShoppingcarts_1() {
-		return this.shoppingcarts_1;
-	}
-
-	public void setShoppingcarts_1(Set shoppingcarts_1) {
-		this.shoppingcarts_1 = shoppingcarts_1;
-	}
-
 	public Set getComments() {
 		return this.comments;
 	}
 
 	public void setComments(Set comments) {
 		this.comments = comments;
-	}
-
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((bid == null) ? 0 : bid.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Book other = (Book) obj;
-		if (bid == null) {
-			if (other.bid != null)
-				return false;
-		} else if (!bid.equals(other.bid))
-			return false;
-		return true;
 	}
 
 }

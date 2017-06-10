@@ -282,5 +282,18 @@
 			<ref bean="bookDao" />
 		</property>
 	</bean>
+	
+	<!-- 修改图书推荐 -->
+	<bean id="SwitchRecommendAction" class="llj.ssh.action.SwitchRecommendAction">
+		<property name="bookDao">
+			<ref bean="bd" />
+		</property>
+	</bean>
+	
+	<bean id="AllRecommendAction" class="llj.ssh.action.AllRecommendAction">
+		<property name="bookDao">
+			<ref bean="bd" />
+		</property>
+	</bean>
 
 </beans>
