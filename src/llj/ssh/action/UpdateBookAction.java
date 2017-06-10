@@ -1,5 +1,7 @@
 package llj.ssh.action;
 
+import java.util.Date;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import com.ssh.dao.BookDao;
@@ -39,6 +41,9 @@ public class UpdateBookAction extends ActionSupport {
 	}
 	public String execute() {
 		book.setBooktype(bookDao.getBookTypeById(newType));
+		if(book.getAddDate()==null){
+			book.setAddDate(new Date());
+		}
 		System.out.println("Using UpdateBookAction");
 		if (bookDao.editBook(book))
 			return SUCCESS;
