@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans
-	xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
@@ -11,92 +9,94 @@
            				http://www.springframework.org/schema/tx
 						http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-	<!-- <aop:aspectj-autoproxy />  --><!-- 启用@AspectJ配置 -->
+	<!-- <aop:aspectj-autoproxy /> --><!-- 启用@AspectJ配置 -->
 	<!-- 获取PayAgain类的实例 -->
 	<bean id="receiveConfirmAction" class="czj.ssh.action.ReceiveConfirm">
 		<property name="orderDao">
-			<ref bean="orderDao"/>
+			<ref bean="orderDao" />
 		</property>
 		<property name="orderStateDao">
-			<ref bean="orderStateDao"/>
+			<ref bean="orderStateDao" />
 		</property>
 	</bean>
-	
+
 	<bean id="payAgainAction" class="czj.ssh.action.PayAgain">
 		<property name="orderDao">
-			<ref bean="orderDao"/>
+			<ref bean="orderDao" />
 		</property>
 	</bean>
-	
+
 	<!-- 获取QueryBookForIndex类的实例 -->
 	<bean id="queryBookForIndexAction" class="czj.ssh.action.QueryBookForIndex">
 		<property name="bookDao">
-			<ref bean="bookDao"/>
+			<ref bean="bookDao" />
 		</property>
-	</bean>	
-	
+	</bean>
+
 	<!-- 获取QueryShoppingCart类的实例 -->
 	<bean id="queryShoppingCartAction" class="czj.ssh.action.QueryShoppingCart">
 		<property name="shoppingCartDao">
-			<ref bean="shoppingCartDao"/>
+			<ref bean="shoppingCartDao" />
 		</property>
 	</bean>
-	
+
 	<!-- 获取DeleteShoppingCartItem类的对象 -->
 	<bean id="deleteShoppingCartItemAction" class="czj.ssh.action.DeleteShoppingCartItem">
 		<property name="shoppingCartDao">
-			<ref bean="shoppingCartDao"/>
+			<ref bean="shoppingCartDao" />
 		</property>
 	</bean>
-	
+
 	<!-- 获取CreateOrder类的对象 -->
-	<bean id="createOrderAction" class="czj.ssh.action.CreateOrder" scope="prototype">
+	<bean id="createOrderAction" class="czj.ssh.action.CreateOrder"
+		scope="prototype">
 		<property name="orderDao">
-			<ref bean="orderDao"/>
+			<ref bean="orderDao" />
 		</property>
 		<property name="shoppingCartDao">
-			<ref bean="shoppingCartDao"/>
+			<ref bean="shoppingCartDao" />
 		</property>
 		<property name="orderStateDao">
-			<ref bean="orderStateDao"/>
+			<ref bean="orderStateDao" />
 		</property>
 	</bean>
 	<!-- 获取AddAddress类的对象 -->
 	<bean id="addAddressAction" class="czj.ssh.action.AddAddress">
 		<property name="userDao">
-			<ref bean="userDao"/>
+			<ref bean="userDao" />
 		</property>
 	</bean>
 	<!-- 获取Payment类的对象 -->
 	<bean id="paymentAction" class="czj.ssh.action.Payment">
 		<property name="paymentDao">
-			<ref bean="paymentDao"/>
+			<ref bean="paymentDao" />
 		</property>
 	</bean>
 	<!-- 获取Search类的对象 -->
 	<bean id="searchAction" class="czj.ssh.action.Search" scope="prototype">
 		<property name="bookDao">
-			<ref bean="bookDao"/>
+			<ref bean="bookDao" />
 		</property>
 	</bean>
 	<!-- 获取SimulationLogin类的对象 -->
 	<bean id="simulationLoginAction" class="czj.ssh.action.SimulationLogin">
 		<property name="user">
-			<ref bean="user"/>
+			<ref bean="user" />
 		</property>
 		<property name="userDao">
-			<ref bean="userDao"/>
+			<ref bean="userDao" />
 		</property>
 	</bean>
 	<!-- 获取AddToShoppingCart类的对象 -->
 	<bean id="addToShoppingCartAction" class="czj.ssh.action.AddToShoppingCart">
 		<property name="shoppingCartDao">
-			<ref bean="shoppingCartDao"/>
+			<ref bean="shoppingCartDao" />
 		</property>
 	</bean>
 	<!-- 获取Checkout类的对象 -->
 	<bean id="checkoutAction" class="czj.ssh.action.Checkout" />
-	<bean id="bookclassifyAction" class="com.ssh.action.bookclassifyAction" init-method="">
+	<bean id="bookclassifyAction" class="com.ssh.action.bookclassifyAction"
+		init-method="">
 		<property name="bookdao">
 			<ref bean="bd" />
 		</property>
@@ -119,33 +119,33 @@
 		</property>
 	</bean>
 	<!-- 修改密码 -->
-		<bean id="revisepwdAction" class="com.ssh.action.revisepwdAction">
+	<bean id="revisepwdAction" class="com.ssh.action.revisepwdAction">
 		<property name="userdao">
 			<ref bean="ud" />
 		</property>
 	</bean>
 	<!-- 订单中心 -->
-		
+
 	<bean id="myorderAction" class="com.ssh.action.myorderAction">
 		<property name="userdao">
 			<ref bean="ud" />
 		</property>
 	</bean>
-	
+
 	<!-- 信息完善 -->
 	<bean id="perfectdataAction" class="com.ssh.action.perfectdataAction">
 		<property name="userdao">
 			<ref bean="ud" />
 		</property>
 	</bean>
-<!-- 	6.10 -->
-	<!-- //管理员查询所有订单 -->
+	<!-- 6.10 -->
+	<!-- //ç®¡çåæ¥è¯¢ææè®¢å -->
 	<bean id="adminorderAction" class="com.ssh.adminAction.adminorderAction">
 		<property name="adminDao">
 			<ref bean="ad" />
 		</property>
-	</bean> 
-	
+	</bean>
+
 	<bean id="removeorderAction" class="com.ssh.adminAction.removeorderAction">
 		<property name="adminDao">
 			<ref bean="ad" />
@@ -156,103 +156,131 @@
 			<ref bean="bd" />
 		</property>
 	</bean>
-	<!-- //删除地址 -->
+	<!-- //å é¤å°å -->
 	<bean id="removeaddress" class="com.ssh.action.removerAAction">
 		<property name="userdao">
 			<ref bean="ud" />
 		</property>
 	</bean>
-	<!-- 修改价格操作 -->
+	<!-- 获取价格action -->
 	<bean id="revicepriceAction" class="com.ssh.adminAction.revicepriceAction">
 		<property name="adminDao">
 			<ref bean="ad" />
 		</property>
-	</bean> 
-	<!-- 修改订单状态RstateorderAction -->
+	</bean>
+	<!-- ä¿®æ¹è®¢åç¶æRstateorderAction -->
 	<bean id="RstateorderAction" class="com.ssh.adminAction.RevicestateAction">
 		<property name="adminDao">
 			<ref bean="ad" />
 		</property>
 	</bean>
-	<!-- 修改订单状态操作  -->
+	<!-- ä¿®æ¹è®¢åç¶ææä½ -->
 	<bean id="rAction" class="com.ssh.adminAction.rAction">
 		<property name="adminDao">
 			<ref bean="ad" />
 		</property>
 	</bean>
-	<!-- 搜索订单操作 -->
+	<!-- æç´¢è®¢åæä½ -->
 	<bean id="reachorderAction" class="com.ssh.adminAction.reachorderAction">
 		<property name="adminDao">
 			<ref bean="ad" />
 		</property>
 	</bean>
-	<!-- 校验用户名是否重复的ajax提交 -->
+	<!-- æ ¡éªç¨æ·åæ¯å¦éå¤çajaxæäº¤ -->
 	<bean id="userJSON_checknameAction" class="com.ssh.action.checknameAction">
 		<property name="userdao">
 			<ref bean="ud" />
 		</property>
 	</bean>
-		
+
+
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+	<!-- edit by rin 2017/6/6 -->
+
 	<!--分页获取所有图书 -->
 	<bean id="BookListAction" class="llj.ssh.action.BookListAction">
 		<property name="bookDao">
-			<ref bean="bd"/>
+			<ref bean="bd" />
 		</property>
-		<property name="pageSize" value="19"/>
+		<property name="pageSize" value="19" />
 	</bean>
-	<!--分页获取所有用户  -->
-	
+	<!--分页获取所有用户 -->
+
 	<bean id="UserListAction" class="llj.ssh.action.UserListAction">
 		<property name="userDao">
 			<ref bean="ud" />
 		</property>
 	</bean>
-		
+
 	<!-- 删除图书 -->
 	<bean id="DeleteBookAction" class="llj.ssh.action.DeleteBookAction">
 		<property name="bookDao">
-			<ref bean="bd"/>
+			<ref bean="bd" />
 		</property>
 	</bean>
-	
+
 	<!-- 删除用户 -->
 	<bean id="DeleteUserAction" class="llj.ssh.action.DeleteUserAction">
 		<property name="UserDao">
-			<ref bean="ud"/>
+			<ref bean="ud" />
 		</property>
 	</bean>
-	
-	
+
+
 	<!-- 前往 -->
 	<bean id="EditBookAction" class="llj.ssh.action.EditBookAction">
 		<property name="bookDao">
-			<ref bean="bd"/>
+			<ref bean="bd" />
 		</property>
 	</bean>
-	
+
 	<!-- 更新图书信息 -->
 	<bean id="UpdateBookAction" class="llj.ssh.action.UpdateBookAction">
 		<property name="bookDao">
-			<ref bean="bd"/>
+			<ref bean="bd" />
 		</property>
 	</bean>
-	
+
 	<!-- 上传图片 -->
 	<bean id="UploadFileAction" class="llj.ssh.action.UploadFileAction">
 		<property name="dao">
-			<ref bean="bd"/>
+			<ref bean="bd" />
 		</property>
 	</bean>
-	
+
 	<bean id="AddManagerAction" class="llj.ssh.action.AddManagerAction">
 		<property name="UserDao">
-			<ref bean="ud"/>
+			<ref bean="ud" />
 		</property>
 	</bean>
-	
-	
-	
-	
-	
-	
+
+	<bean id="BookTypeListAction" class="llj.ssh.action.BookTypeListAction">
+		<property name="dao">
+			<ref bean="bookTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 保存或更新图书类型 -->
+	<bean id="UpdateBookTypeAction" class="llj.ssh.action.UpdateBookTypeAction">
+		<property name="dao">
+			<ref bean="bookTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 删除图书类型 -->
+	<bean id="DeleteBookTypeAction" class="llj.ssh.action.DeleteBookTypeAction">
+		<property name="dao">
+			<ref bean="bookTypeDao" />
+		</property>
+		<property name="bookDao">
+			<ref bean="bookDao" />
+		</property>
+	</bean>
+
 </beans>
