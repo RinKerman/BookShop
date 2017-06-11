@@ -8,7 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-
+<s:if test="#session.user.usertype.utId != 1">
+	<jsp:forward page="login.jsp"/>
+</s:if>
 <body>
 	<center>
 		<form action=UpdateBookAction method="post">

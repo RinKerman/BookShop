@@ -57,6 +57,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </script>
 
 </head>
+<s:if test="#session.user.usertype.utId != 1">
+	<jsp:forward page="login.jsp"/>
+</s:if>
 <body>
 
 		<!-- Main content -->

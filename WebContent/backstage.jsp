@@ -38,6 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="Admin_js/respond.min.js"></script>
   <script src="Admin_js/jquery.slimscroll.min.js"></script>
   <![endif]-->
+  <
 <script type="text/javascript">
   	function check(){
   		var flag=0;
@@ -77,7 +78,9 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-
+<s:if test="#session.user.usertype.utId != 1">
+	<jsp:forward page="login.jsp"/>
+</s:if>
 
 <body class="hold-transition skin-blue slidebar-mini">
 	<div class="wrapper">

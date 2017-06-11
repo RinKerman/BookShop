@@ -28,7 +28,9 @@
 </script>
 
 </head>
-
+<s:if test="#session.user.usertype.utId != 1">
+	<jsp:forward page="login.jsp"/>
+</s:if>
 <body>
 	<center>
 		<h2>上传图片文件</h2>

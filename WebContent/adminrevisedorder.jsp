@@ -75,6 +75,9 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+<s:if test="#session.user.usertype.utId != 1">
+	<jsp:forward page="login.jsp"/>
+</s:if>
 
 <body class="hold-transition skin-blue slidebar-mini">
 <div class="wrapper">

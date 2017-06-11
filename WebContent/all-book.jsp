@@ -20,8 +20,8 @@
 
 <link href="css/layui.css" rel="stylesheet" />
 </head>
-<s:if test="#session.user.usertype.utype != 1">
-	<jsp:forward page="/login" />
+<s:if test="#session.user.usertype.utId != 1">
+	<jsp:forward page="login.jsp"/>
 </s:if>
 <body>
 	<center>
